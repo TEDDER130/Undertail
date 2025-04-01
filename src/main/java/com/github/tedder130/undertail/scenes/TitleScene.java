@@ -5,6 +5,8 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.tedder130.undertail.Undertail;
+import com.github.tedder130.undertail.buttons.QuitButton;
+import com.github.tedder130.undertail.buttons.StartButton;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -33,5 +35,13 @@ public class TitleScene extends StaticScene {
         undertailText.setFill(rgb(255,255,255));
         undertailText.setFont(Font.font("Roboto", FontWeight.BOLD, 80));
         addEntity(undertailText);
+
+        Coordinate2D startButtonLocation = new Coordinate2D(getWidth() / 3, (getHeight() / 3) * 2);
+        StartButton startButton = new StartButton(startButtonLocation, undertail);
+        addEntity(startButton);
+
+        Coordinate2D quitButtonLocation = new Coordinate2D((getWidth() / 3) * 2, (getHeight() / 3) * 2);
+        QuitButton quitButton = new QuitButton(quitButtonLocation, undertail);
+        addEntity(quitButton);
     }
 }
