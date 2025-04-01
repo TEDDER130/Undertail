@@ -2,11 +2,9 @@ package com.github.tedder130.undertail.entities;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
-import com.github.hanyaeger.api.entities.Collided;
-import com.github.hanyaeger.api.entities.Collider;
-import com.github.hanyaeger.api.entities.Newtonian;
-import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
+import com.github.hanyaeger.api.entities.*;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
+import com.github.hanyaeger.api.entities.impl.SpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.tedder130.undertail.Undertail;
@@ -28,6 +26,8 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.undertail = undertail;
         healthText.setHealthText(health);
     }
+
+
 
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys){
