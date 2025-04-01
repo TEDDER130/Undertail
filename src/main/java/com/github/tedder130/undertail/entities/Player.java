@@ -18,7 +18,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     private Undertail undertail;
     private HealthText healthText;
-    private int  health = 2;
+    private int health = 2;
 
     public Player(Coordinate2D location, HealthText healthText, Undertail undertail) {
         super("sprites/Player.png", location);
@@ -28,15 +28,23 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     }
 
     @Override
-    public void onPressedKeysChange(Set<KeyCode> pressedKeys){
-        if(pressedKeys.contains(KeyCode.LEFT)){
-            setMotion(5,270d);
-        } else if(pressedKeys.contains(KeyCode.RIGHT)){
-            setMotion(5,90d);
-        } else if(pressedKeys.contains(KeyCode.UP)){
+    public void onPressedKeysChange(Set<KeyCode> pressedKeys) {
+        if (pressedKeys.contains(KeyCode.W) && pressedKeys.contains(KeyCode.D)) {
+            setMotion(3.54,135d);
+        } else if (pressedKeys.contains(KeyCode.D) && pressedKeys.contains(KeyCode.S)) {
+            setMotion(3.54,45d);
+        } else if (pressedKeys.contains(KeyCode.S) && pressedKeys.contains(KeyCode.A)) {
+            setMotion(3.54,315d);
+        } else if (pressedKeys.contains(KeyCode.A) && pressedKeys.contains(KeyCode.W)) {
+            setMotion(3.54,225);
+        } else if(pressedKeys.contains(KeyCode.W)){
             setMotion(5,180d);
-        } else if(pressedKeys.contains(KeyCode.DOWN)){
+        } else if(pressedKeys.contains(KeyCode.D)){
+            setMotion(5,90d);
+        } else if(pressedKeys.contains(KeyCode.S)){
             setMotion(5,0d);
+        } else if(pressedKeys.contains(KeyCode.A)){
+            setMotion(5,270d);
         } else {
             setSpeed(0);
         }
