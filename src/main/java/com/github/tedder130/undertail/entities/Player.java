@@ -21,7 +21,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     private int health = 2;
 
     public Player(Coordinate2D location, HealthText healthText, Undertail undertail) {
-        super("sprites/Player.png", location);
+        super("sprites/Player.png", location, new Size(40,40));
         this.healthText = healthText;
         this.undertail = undertail;
         healthText.setHealthText(health);
@@ -30,13 +30,13 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys) {
         if (pressedKeys.contains(KeyCode.W) && pressedKeys.contains(KeyCode.D)) {
-            setMotion(3.54,135d);
+            setMotion(5,135d);
         } else if (pressedKeys.contains(KeyCode.D) && pressedKeys.contains(KeyCode.S)) {
-            setMotion(3.54,45d);
+            setMotion(5,45d);
         } else if (pressedKeys.contains(KeyCode.S) && pressedKeys.contains(KeyCode.A)) {
-            setMotion(3.54,315d);
+            setMotion(5,315d);
         } else if (pressedKeys.contains(KeyCode.A) && pressedKeys.contains(KeyCode.W)) {
-            setMotion(3.54,225);
+            setMotion(5,225);
         } else if(pressedKeys.contains(KeyCode.W)){
             setMotion(5,180d);
         } else if(pressedKeys.contains(KeyCode.D)){
