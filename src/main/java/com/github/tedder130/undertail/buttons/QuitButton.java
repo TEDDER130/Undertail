@@ -21,6 +21,7 @@ public class QuitButton extends TextEntity implements MouseButtonPressedListener
     public QuitButton(Coordinate2D initialLocation, Undertail undertail){
         super(initialLocation,"QUIT");
         setFill(rgb(200,200,200));
+        setStrokeColor(rgb())
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
         this.undertail = undertail;
