@@ -9,6 +9,7 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.text.HealthText;
+import com.github.tedder130.undertail.entities.aanval.SmallBullet;
 import javafx.scene.input.KeyCode;
 
 import java.util.List;
@@ -120,5 +121,13 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
     @Override
     public void onCollision(List<Collider> collidingObject) {
 
+        for (Collider collider : collidingObject) {
+            if(!((SmallBullet) collider).getHit()) {
+                System.out.println("Hit By" + collider);
+                this.health -= ((SmallBullet) collider).getDamage();
+            }
+            ((SmallBullet) collider).setHit(true);
+        }
+        healthText.setHealthText(health);
     }
 }
