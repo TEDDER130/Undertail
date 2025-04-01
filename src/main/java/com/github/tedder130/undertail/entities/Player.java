@@ -11,7 +11,6 @@ import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.text.HealthText;
 import com.github.tedder130.undertail.entities.aanval.SmallBullet;
 import javafx.scene.input.KeyCode;
-
 import java.util.List;
 import java.util.Set;
 
@@ -19,8 +18,12 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
 
     private Undertail undertail;
     private HealthText healthText;
+<<<<<<< HEAD
     private int health = 2;
     private int[] playAreaPropoties;
+=======
+    private int health = 100;
+>>>>>>> 04f40ab0e42fd4c3f92646d355db803fa67e2faa
 
     public Player(Coordinate2D location, HealthText healthText, Undertail undertail, int[] playAreaPropoties) {
         super("sprites/Player.png", location, new Size(40,40));
@@ -120,7 +123,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
 
     @Override
     public void onCollision(List<Collider> collidingObject) {
-
         for (Collider collider : collidingObject) {
             if(!((SmallBullet) collider).getHit()) {
                 System.out.println("Hit By" + collider);
