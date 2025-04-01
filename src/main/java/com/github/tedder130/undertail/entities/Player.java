@@ -21,7 +21,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     private int  health = 2;
 
     public Player(Coordinate2D location, HealthText healthText, Undertail undertail) {
-        super("sprites/hanny.png", location, new Size(20, 40), 1, 2);
+        super("sprites/Player.png", location, new Size(20, 40), 1, 2);
         this.healthText = healthText;
         this.undertail = undertail;
         healthText.setHealthText(health);
