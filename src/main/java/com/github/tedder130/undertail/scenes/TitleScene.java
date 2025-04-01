@@ -21,7 +21,7 @@ public class TitleScene extends StaticScene {
 
     @Override
     public void setupScene() {
-        setBackgroundImage("backgrounds/TitleScreenBackground.png");
+        setBackgroundImage("backgrounds/TitleSceneBackground.png");
     }
 
     @Override
