@@ -1,7 +1,7 @@
 module waterworld {
     requires hanyaeger;
 
-    exports com.github.bramm15.undertail;
+    exports com.github.tedder130.undertail;
 
     opens audio;
     opens backgrounds;
