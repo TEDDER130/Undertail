@@ -18,12 +18,8 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
 
     private Undertail undertail;
     private HealthText healthText;
-<<<<<<< HEAD
-    private int health = 2;
-    private int[] playAreaPropoties;
-=======
     private int health = 100;
->>>>>>> 04f40ab0e42fd4c3f92646d355db803fa67e2faa
+    private int[] playAreaPropoties;
 
     public Player(Coordinate2D location, HealthText healthText, Undertail undertail, int[] playAreaPropoties) {
         super("sprites/Player.png", location, new Size(40,40));
