@@ -27,8 +27,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         healthText.setHealthText(health);
     }
 
-
-
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys){
         if(pressedKeys.contains(KeyCode.LEFT)){

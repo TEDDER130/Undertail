@@ -29,7 +29,7 @@ public class GameOver extends StaticScene {
     public void setupEntities() {
         var gameOverText = new TextEntity(
                 new Coordinate2D(getWidth() / 2, getHeight() / 3),
-                "GAME OVER"
+                "GAMEOVER"
         );
         gameOverText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         gameOverText.setFill(rgb(255,255,255));

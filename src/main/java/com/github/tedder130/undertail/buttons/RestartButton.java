@@ -20,7 +20,7 @@ public class RestartButton extends TextEntity implements MouseButtonPressedListe
 
     public RestartButton(Coordinate2D initialLocation, Undertail undertail){
         super(initialLocation,"RESTART");
-        setFill(rgb(200,200,200));
+        setFill(rgb(255,255,255));
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
         this.undertail = undertail;
@@ -33,13 +33,11 @@ public class RestartButton extends TextEntity implements MouseButtonPressedListe
 
     @Override
     public void onMouseEntered(){
-        setFill(rgb(255,255,255));
         setCursor(Cursor.HAND);
     }
 
     @Override
     public void onMouseExited(){
-        setFill(rgb(200,200,200));
         setCursor(Cursor.DEFAULT);
     }
 }
