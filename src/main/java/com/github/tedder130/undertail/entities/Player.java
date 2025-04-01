@@ -14,14 +14,14 @@ import javafx.scene.input.KeyCode;
 import java.util.List;
 import java.util.Set;
 
-public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Newtonian, Collided {
+public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided {
 
     private Undertail undertail;
     private HealthText healthText;
     private int  health = 2;
 
     public Player(Coordinate2D location, HealthText healthText, Undertail undertail) {
-        super("sprites/Player.png", location, new Size(20, 40), 1, 2);
+        super("sprites/Player.png", location);
         this.healthText = healthText;
         this.undertail = undertail;
         healthText.setHealthText(health);
@@ -31,10 +31,8 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     public void onPressedKeysChange(Set<KeyCode> pressedKeys){
         if(pressedKeys.contains(KeyCode.LEFT)){
             setMotion(5,270d);
-            setCurrentFrameIndex(0);
         } else if(pressedKeys.contains(KeyCode.RIGHT)){
             setMotion(5,90d);
-            setCurrentFrameIndex(1);
         } else if(pressedKeys.contains(KeyCode.UP)){
             setMotion(5,180d);
         } else if(pressedKeys.contains(KeyCode.DOWN)){
