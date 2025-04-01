@@ -4,9 +4,9 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.Player;
-import com.github.tedder130.undertail.entities.aanval.SmallBullet;
+import com.github.tedder130.undertail.entities.attack.BigBullet;
+import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import com.github.tedder130.undertail.entities.text.HealthText;
-import javafx.scene.Scene;
 
 import static javafx.scene.paint.Color.rgb;
 
@@ -37,7 +37,7 @@ public class GameLevel extends DynamicScene {
         addEntity(player);
 
         Coordinate2D bulletCoordinate = new Coordinate2D(0, getHeight() / 2);
-        SmallBullet bullet = new SmallBullet(bulletCoordinate, 90);
-        addEntity(bullet);
+        BigBullet bigBullet = new BigBullet(bulletCoordinate, 90);
+        addEntity(bigBullet);
     }
 }

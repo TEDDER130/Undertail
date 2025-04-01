@@ -120,11 +120,14 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
     @Override
     public void onCollision(List<Collider> collidingObject) {
         for (Collider collider : collidingObject) {
-            if(!((SmallBullet) collider).getHit()) {
-                System.out.println("Hit By" + collider);
-                this.health -= ((SmallBullet) collider).getDamage();
+            if (collider instanceof Bullet) {
+                Bullet bullet = (Bullet) collider;
+                if (!bullet.getHit()) {
+                    System.out.println("Hit By " + bullet);
+                    this.health -= bullet.getDamage();
+                }
+                bullet.setHit(true);
             }
-            ((SmallBullet) collider).setHit(true);
         }
         healthText.setHealthText(health);
     }

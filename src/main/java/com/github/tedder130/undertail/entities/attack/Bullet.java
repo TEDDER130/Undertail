@@ -1,17 +1,18 @@
-package com.github.tedder130.undertail.entities.aanval;
+package com.github.tedder130.undertail.entities.attack;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
-public class SmallBullet extends DynamicSpriteEntity implements Collider {
+public abstract class Bullet extends DynamicSpriteEntity implements Collider {
 
-    private int damage = 10;
+    private int damage;
     private boolean isHit = false;
 
-    public SmallBullet(Coordinate2D initialLocation, int direction) {
-        super("sprites/Bullet.png", initialLocation, new Size(15,30));
+    public Bullet(String resource, Coordinate2D initialLocation, int direction, int damage) {
+        super(resource, initialLocation, new Size(15,30));
+        this.damage = damage;
         setMotion(5, direction);
         setRotate(direction + 90);
     }
