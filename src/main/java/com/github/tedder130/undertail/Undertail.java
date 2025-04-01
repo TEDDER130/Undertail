@@ -3,6 +3,7 @@ package com.github.tedder130.undertail;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
 import com.github.tedder130.undertail.scenes.GameLevel;
+import com.github.tedder130.undertail.scenes.GameOver;
 import com.github.tedder130.undertail.scenes.TitleScene;
 
 public class Undertail extends YaegerGame {
@@ -18,7 +19,7 @@ public class Undertail extends YaegerGame {
     public void setupScenes(){
         addScene(0, new TitleScene(this));
         addScene(1, new GameLevel(this));
-        //addScene(2, new GameOver(this));
+        addScene(2, new GameOver(this));
     }
 
     public static void main(String[] args) {
