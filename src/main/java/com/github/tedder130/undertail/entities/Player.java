@@ -4,12 +4,11 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.*;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
-import com.github.hanyaeger.api.entities.impl.SpriteEntity;
-import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.tedder130.undertail.Undertail;
+import com.github.tedder130.undertail.entities.attack.Bullet;
 import com.github.tedder130.undertail.entities.text.HealthText;
-import com.github.tedder130.undertail.entities.aanval.SmallBullet;
+import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import javafx.scene.input.KeyCode;
 import java.util.List;
 import java.util.Set;
@@ -93,7 +92,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
         }
         return false;
     }
-
 
 
 //    @Override
