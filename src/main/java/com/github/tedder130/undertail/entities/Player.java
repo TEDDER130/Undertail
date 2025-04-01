@@ -14,16 +14,18 @@ import javafx.scene.input.KeyCode;
 import java.util.List;
 import java.util.Set;
 
-public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided {
+public class Player extends DynamicSpriteEntity implements KeyListener, Collided {
 
     private Undertail undertail;
     private HealthText healthText;
     private int health = 2;
+    private int[] playAreaPropoties;
 
-    public Player(Coordinate2D location, HealthText healthText, Undertail undertail) {
+    public Player(Coordinate2D location, HealthText healthText, Undertail undertail, int[] playAreaPropoties) {
         super("sprites/Player.png", location, new Size(40,40));
         this.healthText = healthText;
         this.undertail = undertail;
+        this.playAreaPropoties = playAreaPropoties;
         healthText.setHealthText(health);
     }
 
@@ -41,7 +43,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
             setMotion(5,180d);
         } else if(pressedKeys.contains(KeyCode.D)){
             setMotion(5,90d);
-        } else if(pressedKeys.contains(KeyCode.S)){
+        } else if(pressedKeys.contains(KeyCode.S) && canMove(0)){
             setMotion(5,0d);
         } else if(pressedKeys.contains(KeyCode.A)){
             setMotion(5,270d);
@@ -50,26 +52,70 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         }
     }
 
-    @Override
-    public void notifyBoundaryTouching(SceneBorder border){
-        setSpeed(0);
+    public boolean canMove(int angle) {
+        System.out.println(getAnchorLocation().getY());
 
-        switch(border){
-            case TOP:
-                setAnchorLocationY(1);
+        double x = getAnchorLocation().getX();
+        double y = getAnchorLocation().getY();
+
+        int xPosArea = playAreaPropoties[0];
+        int yPosArea = playAreaPropoties[1];
+        int width = playAreaPropoties[2];
+        int height = playAreaPropoties[3];
+
+        switch (angle) {
+            case 0:
+                if (y < height + yPosArea) {
+                    setAnchorLocationY(height + yPosArea - 1);
+                    return true;
+                }
                 break;
-            case BOTTOM:
-                setAnchorLocationY(getSceneHeight() - getHeight() - 1);
-                break;
-            case LEFT:
-                setAnchorLocationX(1);
-                break;
-            case RIGHT:
-                setAnchorLocationX(getSceneWidth() - getWidth() - 1);
-            default:
-                break;
+                case 45:
+                    if (y < height + yPosArea && x < width + xPosArea) {
+                        setAnchorLocationY(height + yPosArea - 1);
+                        setAnchorLocationY(width + xPosArea - 1);
+                        return true;
+                    }
+                    break;
+                    case 90:
+                        if (x < width + xPosArea) {
+                            setAnchorLocationX(width + xPosArea - 1);
+                            return true;
+                        }
+                        break;
+                        case 135:
+                            if (y > yPosArea && x < width + xPosArea) {
+                                setAnchorLocationY(height + 1);
+                                setAnchorLocationX(width + xPosArea - 1);
+                            }
+                            break;
+            case: 180
         }
+        return false;
     }
+
+
+
+//    @Override
+//    public void notifyBoundaryTouching(SceneBorder border){
+//        setSpeed(0);
+//
+//        switch(border){
+//            case TOP:
+//                setAnchorLocationY(1);
+//                break;
+//            case BOTTOM:
+//                setAnchorLocationY(getSceneHeight() - getHeight() - 1);
+//                break;
+//            case LEFT:
+//                setAnchorLocationX(1);
+//                break;
+//            case RIGHT:
+//                setAnchorLocationX(getSceneWidth() - getWidth() - 1);
+//            default:
+//                break;
+//        }
+//    }
 
     @Override
     public void onCollision(List<Collider> collidingObject) {

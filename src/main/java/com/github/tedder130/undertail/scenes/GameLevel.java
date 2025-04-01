@@ -9,6 +9,9 @@ import javafx.scene.Scene;
 
 public class GameLevel extends DynamicScene {
 
+    //de X, Y, Width, Height
+    private int[] PlayArea = {100, 100, 300, 300};
+
     Undertail undertail;
 
     public GameLevel(Undertail undertail) {
@@ -27,7 +30,7 @@ public class GameLevel extends DynamicScene {
         addEntity(healthText);
 
         Coordinate2D playerCoordinate = new Coordinate2D(getWidth() / 2, getHeight() / 2);
-        Player player = new Player(playerCoordinate, healthText, undertail);
+        Player player = new Player(playerCoordinate, healthText, undertail, PlayArea);
         addEntity(player);
     }
 }
