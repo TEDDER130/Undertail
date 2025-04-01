@@ -7,7 +7,6 @@ import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.buttons.QuitButton;
 import com.github.tedder130.undertail.buttons.StartButton;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -22,7 +21,7 @@ public class TitleScene extends StaticScene {
 
     @Override
     public void setupScene() {
-        setBackgroundImage("backgrounds/TitleScreenBackground.png");
+        setBackgroundImage("backgrounds/TitleSceneBackground.png");
     }
 
     @Override
