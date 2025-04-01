@@ -9,8 +9,8 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.text.HealthText;
+import com.github.tedder130.undertail.entities.aanval.SmallBullet;
 import javafx.scene.input.KeyCode;
-
 import java.util.List;
 import java.util.Set;
 
@@ -18,7 +18,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     private Undertail undertail;
     private HealthText healthText;
-    private int health = 2;
+    private int health = 100;
 
     public Player(Coordinate2D location, HealthText healthText, Undertail undertail) {
         super("sprites/Player.png", location, new Size(40,40));
@@ -73,6 +73,13 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void onCollision(List<Collider> collidingObject) {
-
+        for (Collider collider : collidingObject) {
+            if(!((SmallBullet) collider).getHit()) {
+                System.out.println("Hit By" + collider);
+                this.health -= ((SmallBullet) collider).getDamage();
+            }
+            ((SmallBullet) collider).setHit(true);
+        }
+        healthText.setHealthText(health);
     }
 }
