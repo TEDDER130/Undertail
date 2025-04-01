@@ -2,8 +2,6 @@ package com.github.tedder130.undertail;
 
 import com.github.hanyaeger.api.YaegerGame;
 
-import static javafx.application.Application.launch;
-
 public class Undertail extends YaegerGame {
     public static void main(String[] args){
         launch(args);
