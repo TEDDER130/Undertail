@@ -30,21 +30,21 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
 
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys) {
-        if (pressedKeys.contains(KeyCode.W) && pressedKeys.contains(KeyCode.D)) {
+        if (pressedKeys.contains(KeyCode.W) && pressedKeys.contains(KeyCode.D) && canMove(135)) {
             setMotion(5,135d);
-        } else if (pressedKeys.contains(KeyCode.D) && pressedKeys.contains(KeyCode.S)) {
+        } else if (pressedKeys.contains(KeyCode.D) && pressedKeys.contains(KeyCode.S) && canMove(45)) {
             setMotion(5,45d);
-        } else if (pressedKeys.contains(KeyCode.S) && pressedKeys.contains(KeyCode.A)) {
+        } else if (pressedKeys.contains(KeyCode.S) && pressedKeys.contains(KeyCode.A) && canMove(315)) {
             setMotion(5,315d);
-        } else if (pressedKeys.contains(KeyCode.A) && pressedKeys.contains(KeyCode.W)) {
+        } else if (pressedKeys.contains(KeyCode.A) && pressedKeys.contains(KeyCode.W) && canMove(225)) {
             setMotion(5,225);
-        } else if(pressedKeys.contains(KeyCode.W)){
+        } else if(pressedKeys.contains(KeyCode.W) && canMove(180)){
             setMotion(5,180d);
-        } else if(pressedKeys.contains(KeyCode.D)){
+        } else if(pressedKeys.contains(KeyCode.D) && canMove(90)){
             setMotion(5,90d);
         } else if(pressedKeys.contains(KeyCode.S) && canMove(0)){
             setMotion(5,0d);
-        } else if(pressedKeys.contains(KeyCode.A)){
+        } else if(pressedKeys.contains(KeyCode.A) && canMove(270)){
             setMotion(5,270d);
         } else {
             setSpeed(0);
@@ -64,33 +64,58 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
 
         switch (angle) {
             case 0:
-                if (y < height + yPosArea) {
+                if (y > height + yPosArea) {
                     setAnchorLocationY(height + yPosArea - 1);
-                    return true;
+                    return false;
                 }
                 break;
                 case 45:
-                    if (y < height + yPosArea && x < width + xPosArea) {
+                    if (y > height + yPosArea && x > width + xPosArea) {
                         setAnchorLocationY(height + yPosArea - 1);
                         setAnchorLocationY(width + xPosArea - 1);
-                        return true;
+                        return false;
                     }
                     break;
                     case 90:
-                        if (x < width + xPosArea) {
+                        if (x > width + xPosArea) {
                             setAnchorLocationX(width + xPosArea - 1);
-                            return true;
+                            return false;
                         }
                         break;
                         case 135:
-                            if (y > yPosArea && x < width + xPosArea) {
-                                setAnchorLocationY(height + 1);
+                            if (y < yPosArea && x > width + xPosArea) {
+                                setAnchorLocationY(yPosArea + 1);
                                 setAnchorLocationX(width + xPosArea - 1);
+                                return false;
                             }
                             break;
-            case: 180
+            case 180:
+                    if (y < yPosArea) {
+                        setAnchorLocationY(yPosArea + 1);
+                        return false;
+                    }
+                    break;
+            case 225:
+                if (y < yPosArea && x < xPosArea) {
+                    setAnchorLocationY(yPosArea + 1);
+                    setAnchorLocationX(xPosArea + 1);
+                    return false;
+                }
+                break;
+            case 270:
+                if (x < xPosArea) {
+                    setAnchorLocationX(xPosArea + 1);
+                    return false;
+                }
+                break;
+            case 315:
+                if (x < xPosArea && y > yPosArea + height) {
+                    setAnchorLocationY(yPosArea + height - 1);
+                    setAnchorLocationX(xPosArea + 1);
+                    return false;
+                }
         }
-        return false;
+        return true;
     }
 
 
