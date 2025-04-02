@@ -5,20 +5,18 @@ import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
-public abstract class Bullet extends Attack {
+import static javafx.scene.paint.Color.rgb;
 
-    private int damage;
+public class Bullet extends Attack {
+    
     private boolean isHit = false;
 
-    public Bullet(String resource, Coordinate2D initialLocation, int direction, int damage, Size size) {
-        super(resource, initialLocation, size);
+    public Bullet(Coordinate2D initialLocation, int direction, int damage, Size size) {
+        super(initialLocation, size);
         this.damage = damage;
+        setFill(rgb(255,255,255,1));
         setMotion(5, direction);
         setRotate(direction + 90);
-    }
-
-    public int getDamage() {
-        return damage;
     }
 
     public boolean getHit() {

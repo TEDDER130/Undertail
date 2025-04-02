@@ -71,5 +71,9 @@ public class GameLevel extends DynamicScene {
         Coordinate2D bulletCoordinate = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2, PlayArea[1] - sizePlayer[1] / 2);
         Laser laser = new Laser(bulletCoordinate, 45, true);
         addEntity(laser);
+
+        Coordinate2D abulletCoordinate = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2, PlayArea[1] - sizePlayer[1] / 2 + 150);
+        BigBullet bigBullet = new BigBullet(abulletCoordinate, 90);
+        addEntity(bigBullet);
     }
 }

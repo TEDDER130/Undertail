@@ -5,6 +5,7 @@ import com.github.hanyaeger.api.Size;
 
 public class SmallBullet extends Bullet {
     public SmallBullet(Coordinate2D initialLocation, int direction) {
-        super("sprites/Bullet.png", initialLocation, direction, 10, new Size(15, 30));
+        super(initialLocation, direction, 10, new Size(10, 5));
+        this.damage = damage;
     }
 }
