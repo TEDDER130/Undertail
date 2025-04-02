@@ -8,11 +8,18 @@ import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicRectangleEntity;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
-public abstract class Attack extends DynamicSpriteEntity implements Collider, TimerContainer {
+import static javafx.scene.paint.Color.rgb;
+
+public abstract class Attack extends DynamicRectangleEntity implements Collider, TimerContainer {
 
 
     protected int damage;
     protected int[] playArea = new int[4];
+    protected int indication = 0;
+
+    public Attack(Coordinate2D initialLocation) {
+        super(initialLocation);
+    }
 
     public Attack(Coordinate2D initialLocation, Size size) {
         super(initialLocation, size);
@@ -22,18 +29,34 @@ public abstract class Attack extends DynamicSpriteEntity implements Collider, Ti
         return damage;
     }
 
-    private static class LaserTimer extends Timer {
+    public void indication() {
+        if (indication >= 3) {
+            setFill(rgb(255,255,255,0.75));
+        } else if (indication % 2 == 0) {
+            setFill(rgb(255,255,255, 0.1));
+        } else {
+            setFill(rgb(255,255,255, 0.33));
+        }
+        indication++;
+    }
 
-        private Laser laser;
+    @Override
+    public void setupTimers() {
+        addTimer(new IndicationTimer(this));
+    }
 
-        protected LaserTimer(final Laser laser) {
+    private static class IndicationTimer extends Timer {
+
+        private Attack attack;
+
+        protected IndicationTimer(final Attack attack) {
             super(500);
-            this.laser = laser;
+            this.attack = attack;
         }
 
         @Override
         public void onAnimationUpdate(final long timestamp) {
-            laser.indication();
+            attack.indication();
         }
     }
 }

@@ -2,28 +2,51 @@ package com.github.tedder130.undertail.entities.attack;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
-import com.github.hanyaeger.api.entities.Collider;
-import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
 import static javafx.scene.paint.Color.rgb;
 
 public class Bullet extends Attack {
-    
-    private boolean isHit = false;
 
-    public Bullet(Coordinate2D initialLocation, int direction, int damage, Size size) {
+    private boolean isHit = false;
+    private int angle;
+    private int speed;
+
+    public Bullet(Coordinate2D initialLocation, int angle, int damage, int speed, Size size) {
         super(initialLocation, size);
         this.damage = damage;
-        setFill(rgb(255,255,255,1));
-        setMotion(5, direction);
-        setRotate(direction + 90);
+        this.angle = angle;
+        this.speed = speed;
+        setFill(rgb(255,255,255,0.33));
+        setMotion(0, angle);
+        setRotate(angle + 90);
     }
 
     public boolean getHit() {
         return isHit;
     }
 
+    public int getAngle() {
+        return angle;
+    }
+
+    public int getMotion() {
+        return speed;
+    }
+
     public void setHit(boolean isHit) {
         this.isHit = isHit;
+    }
+
+    @Override
+    public void indication() {
+        if (indication >= 3) {
+            setFill(rgb(255,255,255,0.75));
+            setMotion(getMotion(), getAngle());
+        } else if (indication % 2 == 0) {
+            setFill(rgb(255,255,255, 0.1));
+        } else {
+            setFill(rgb(255,255,255, 0.33));
+        }
+        indication++;
     }
 }

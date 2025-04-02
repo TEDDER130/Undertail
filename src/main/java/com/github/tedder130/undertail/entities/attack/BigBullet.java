@@ -5,6 +5,6 @@ import com.github.hanyaeger.api.Size;
 
 public class BigBullet extends Bullet {
     public BigBullet(Coordinate2D initialLocation, int direction) {
-        super(initialLocation, direction, 25, new Size(30, 15));
+        super(initialLocation, direction, 25, 4, new Size(30, 15));
     }
 }

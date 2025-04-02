@@ -75,5 +75,8 @@ public class GameLevel extends DynamicScene {
         Coordinate2D abulletCoordinate = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2, PlayArea[1] - sizePlayer[1] / 2 + 150);
         BigBullet bigBullet = new BigBullet(abulletCoordinate, 90);
         addEntity(bigBullet);
+
+        SmallBullet smallBullet = new SmallBullet(abulletCoordinate, 90);
+        addEntity(smallBullet);
     }
 }
