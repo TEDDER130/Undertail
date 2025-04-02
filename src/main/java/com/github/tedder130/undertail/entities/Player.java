@@ -11,6 +11,7 @@ import com.github.tedder130.undertail.entities.attack.Laser;
 import com.github.tedder130.undertail.entities.text.HealthText;
 import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import javafx.scene.input.KeyCode;
+
 import java.util.List;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
     private int[] playAreaPropoties;
 
     public Player(Coordinate2D location, HealthText healthText, Undertail undertail, int[] playAreaPropoties) {
-        super("sprites/Player.png", location, new Size(40,40));
+        super("sprites/Player.png", location, new Size(40, 40));
         this.healthText = healthText;
         this.undertail = undertail;
         this.playAreaPropoties = playAreaPropoties;
@@ -32,23 +33,23 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys) {
         if (pressedKeys.contains(KeyCode.W) && pressedKeys.contains(KeyCode.D) && canMove(135)) {
-            setMotion(5,135d);
+            setMotion(5, 135d);
         } else if (pressedKeys.contains(KeyCode.D) && pressedKeys.contains(KeyCode.S) && canMove(45)) {
-            setMotion(5,45d);
+            setMotion(5, 45d);
         } else if (pressedKeys.contains(KeyCode.S) && pressedKeys.contains(KeyCode.A) && canMove(315)) {
-            setMotion(5,315d);
+            setMotion(5, 315d);
         } else if (pressedKeys.contains(KeyCode.A) && pressedKeys.contains(KeyCode.W) && canMove(225)) {
-            setMotion(5,225);
-        } else if(pressedKeys.contains(KeyCode.W) && canMove(180)){
-            setMotion(5,180d);
-        } else if(pressedKeys.contains(KeyCode.D) && canMove(90)){
-            setMotion(5,90d);
+            setMotion(5, 225);
+        } else if (pressedKeys.contains(KeyCode.W) && canMove(180)) {
+            setMotion(5, 180d);
+        } else if (pressedKeys.contains(KeyCode.D) && canMove(90)) {
+            setMotion(5, 90d);
             System.out.println("d");
-        } else if(pressedKeys.contains(KeyCode.S) && canMove(0)){
+        } else if (pressedKeys.contains(KeyCode.S) && canMove(0)) {
             System.out.println("s");
-            setMotion(5,0d);
-        } else if(pressedKeys.contains(KeyCode.A) && canMove(270)){
-            setMotion(5,270d);
+            setMotion(5, 0d);
+        } else if (pressedKeys.contains(KeyCode.A) && canMove(270)) {
+            setMotion(5, 270d);
         } else {
             setSpeed(0);
         }
@@ -72,38 +73,38 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                     return false;
                 }
                 break;
-                case 45:
-                    if (y >= height + yPosArea) {
-                        setAnchorLocationY(height + yPosArea);
-                        return false;
-                    }
-                    if (x >= width + xPosArea) {
+            case 45:
+                if (y >= height + yPosArea) {
+                    setAnchorLocationY(height + yPosArea);
+                    return false;
+                }
+                if (x >= width + xPosArea) {
                     setAnchorLocationX(width + xPosArea);
                     return false;
                 }
-                    break;
-                    case 90:
-                        if (x >= width + xPosArea) {
-                            setAnchorLocationX(width + xPosArea);
-                            return false;
-                        }
-                        break;
-                        case 135:
-                            if (x >= width + xPosArea) {
-                                setAnchorLocationX(width + xPosArea);
-                                return false;
-                            }
-                            if (y <= yPosArea) {
-                                setAnchorLocationY(yPosArea);
-                                return false;
-                            }
-                            break;
+                break;
+            case 90:
+                if (x >= width + xPosArea) {
+                    setAnchorLocationX(width + xPosArea);
+                    return false;
+                }
+                break;
+            case 135:
+                if (x >= width + xPosArea) {
+                    setAnchorLocationX(width + xPosArea);
+                    return false;
+                }
+                if (y <= yPosArea) {
+                    setAnchorLocationY(yPosArea);
+                    return false;
+                }
+                break;
             case 180:
-                    if (y <= yPosArea) {
-                        setAnchorLocationY(yPosArea);
-                        return false;
-                    }
-                    break;
+                if (y <= yPosArea) {
+                    setAnchorLocationY(yPosArea);
+                    return false;
+                }
+                break;
             case 225:
                 if (y <= yPosArea) {
                     setAnchorLocationY(yPosArea);
@@ -167,7 +168,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                 bullet.setHit(true);
             } else if (collider instanceof Laser) {
                 Laser laser = (Laser) collider;
-                if(laser.canHit()) {
+                if (laser.canHit()) {
                     System.out.println("Hit By " + laser);
                     laser.setLastHit();
                     this.health -= laser.getDamage();
