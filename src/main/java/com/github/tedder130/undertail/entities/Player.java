@@ -134,37 +134,16 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
         return true;
     }
 
-//    @Override
-//    public void notifyBoundaryTouching(SceneBorder border){
-//        setSpeed(0);
-//
-//        switch(border){
-//            case TOP:
-//                setAnchorLocationY(1);
-//                break;
-//            case BOTTOM:
-//                setAnchorLocationY(getSceneHeight() - getHeight() - 1);
-//                break;
-//            case LEFT:
-//                setAnchorLocationX(1);
-//                break;
-//            case RIGHT:
-//                setAnchorLocationX(getSceneWidth() - getWidth() - 1);
-//            default:
-//                break;
-//        }
-//    }
-
     @Override
     public void onCollision(List<Collider> collidingObject) {
         for (Collider collider : collidingObject) {
             if (collider instanceof Bullet) {
                 Bullet bullet = (Bullet) collider;
-                if (!bullet.getHit()) {
+                if (bullet.getCanGiveDamage()) {
                     System.out.println("Hit By " + bullet + " Damage: " + bullet.getDamage());
                     this.health -= bullet.getDamage();
                 }
-                bullet.setHit(true);
+                bullet.setCanGiveDamage(false);
             } else if (collider instanceof Laser) {
                 Laser laser = (Laser) collider;
                 if (laser.canHit()) {

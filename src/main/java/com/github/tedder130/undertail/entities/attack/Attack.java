@@ -14,8 +14,9 @@ public abstract class Attack extends DynamicRectangleEntity implements Collider,
 
 
     protected int damage;
-    protected int[] playArea = new int[4];
-    protected int indication = 0;
+    //protected int indication = 0;
+
+    public abstract void indication();
 
     public Attack(Coordinate2D initialLocation) {
         super(initialLocation);
@@ -27,17 +28,6 @@ public abstract class Attack extends DynamicRectangleEntity implements Collider,
 
     public int getDamage() {
         return damage;
-    }
-
-    public void indication() {
-        if (indication >= 3) {
-            setFill(rgb(255,255,255,0.75));
-        } else if (indication % 2 == 0) {
-            setFill(rgb(255,255,255, 0.1));
-        } else {
-            setFill(rgb(255,255,255, 0.33));
-        }
-        indication++;
     }
 
     @Override
