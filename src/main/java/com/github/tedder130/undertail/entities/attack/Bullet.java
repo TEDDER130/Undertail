@@ -5,7 +5,7 @@ import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
-public abstract class Bullet extends DynamicSpriteEntity implements Collider {
+public abstract class Bullet extends Attack {
 
     private int damage;
     private boolean isHit = false;
