@@ -21,7 +21,6 @@ public class GameLevel extends DynamicScene {
     //de X, Y, Width, Height
     public int[] PlayArea = {100, 200, 600, 300};
     public int[] sizePlayer = {27, 40};
-    private int[] PlayArea = {100, 200, 600, 300};
     private int wave = 3;
     private int highScore = 69;
     private int score = 4312;
