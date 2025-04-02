@@ -134,7 +134,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
         return true;
     }
 
-
 //    @Override
 //    public void notifyBoundaryTouching(SceneBorder border){
 //        setSpeed(0);

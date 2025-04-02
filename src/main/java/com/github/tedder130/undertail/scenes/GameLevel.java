@@ -10,6 +10,9 @@ import com.github.tedder130.undertail.entities.attack.Laser;
 import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import com.github.tedder130.undertail.entities.text.HealthText;
 import com.github.hanyaeger.api.Size;
+import com.github.tedder130.undertail.entities.text.HighScoreText;
+import com.github.tedder130.undertail.entities.text.ScoreText;
+import com.github.tedder130.undertail.entities.text.WaveText;
 
 import static javafx.scene.paint.Color.rgb;
 
@@ -18,6 +21,10 @@ public class GameLevel extends DynamicScene {
     //de X, Y, Width, Height
     public int[] PlayArea = {100, 200, 600, 300};
     public int[] sizePlayer = {27, 40};
+    private int[] PlayArea = {100, 200, 600, 300};
+    private int wave = 3;
+    private int highScore = 69;
+    private int score = 4312;
 
     Undertail undertail;
 
@@ -37,9 +44,26 @@ public class GameLevel extends DynamicScene {
         PlayArea playArea = new PlayArea(playAreaCoordinate, playAreaSize);
         addEntity(playArea);
 
-        Coordinate2D healthTextCoordinate = new Coordinate2D(20, 20);
+        Coordinate2D healthTextCoordinate = new Coordinate2D(getWidth() / 3, 70);
         HealthText healthText = new HealthText(healthTextCoordinate);
         addEntity(healthText);
+
+        Coordinate2D waveTextCoordinate = new Coordinate2D(getWidth() / 3, 130);
+        WaveText waveText = new WaveText(waveTextCoordinate);
+        addEntity(waveText);
+        waveText.setWaveText(wave);
+
+        Coordinate2D scoreTextCoordinate = new Coordinate2D(getWidth() / 3 * 2, 70);
+        ScoreText scoreText = new ScoreText(scoreTextCoordinate);
+        addEntity(scoreText);
+        scoreText.setScoreText(score);
+
+        Coordinate2D highScoreTextCoordinate = new Coordinate2D(getWidth() / 3 * 2, 130);
+        HighScoreText highScoreText = new HighScoreText(highScoreTextCoordinate);
+        addEntity(highScoreText);
+        highScoreText.setHighScoreText(highScore);
+
+
 
         Coordinate2D playerCoordinate = new Coordinate2D(getWidth() / 2, getHeight() / 2);
         Player player = new Player(playerCoordinate, healthText, undertail, PlayArea);
