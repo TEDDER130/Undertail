@@ -10,8 +10,8 @@ public abstract class Bullet extends DynamicSpriteEntity implements Collider {
     private int damage;
     private boolean isHit = false;
 
-    public Bullet(String resource, Coordinate2D initialLocation, int direction, int damage) {
-        super(resource, initialLocation, new Size(15,30));
+    public Bullet(String resource, Coordinate2D initialLocation, int direction, int damage, Size size) {
+        super(resource, initialLocation, size);
         this.damage = damage;
         setMotion(5, direction);
         setRotate(direction + 90);

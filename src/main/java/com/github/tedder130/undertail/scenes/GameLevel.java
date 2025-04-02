@@ -5,6 +5,7 @@ import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.Player;
 import com.github.tedder130.undertail.entities.attack.BigBullet;
+import com.github.tedder130.undertail.entities.attack.Laser;
 import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import com.github.tedder130.undertail.entities.text.HealthText;
 
@@ -37,7 +38,7 @@ public class GameLevel extends DynamicScene {
         addEntity(player);
 
         Coordinate2D bulletCoordinate = new Coordinate2D(0, getHeight() / 2);
-        BigBullet bigBullet = new BigBullet(bulletCoordinate, 90);
-        addEntity(bigBullet);
+        Laser laser = new Laser(bulletCoordinate, 90, 45);
+        addEntity(laser);
     }
 }
