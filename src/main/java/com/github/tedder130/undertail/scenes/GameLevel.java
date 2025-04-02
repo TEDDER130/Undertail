@@ -38,7 +38,7 @@ public class GameLevel extends DynamicScene {
         addEntity(player);
 
         Coordinate2D bulletCoordinate = new Coordinate2D(0, getHeight() / 2);
-        Laser laser = new Laser(bulletCoordinate, 90, 45);
+        Laser laser = new Laser(bulletCoordinate, 45, true);
         addEntity(laser);
     }
 }

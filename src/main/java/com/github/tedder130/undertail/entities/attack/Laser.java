@@ -9,11 +9,17 @@ import static javafx.util.Duration.millis;
 
 public class Laser extends DynamicSpriteEntity implements Collider {
 
-    private int damage = 5;
+    private int damage = 1;
     private long lastHit = 0;
 
-    public Laser(Coordinate2D initialLocation, int width, int angle) {
-        super("sprites/Bullet.png", initialLocation, new Size(width, 50));
+    public Laser(Coordinate2D initialLocation, int width, boolean horizontal) {
+        super("sprites/Laser.png", initialLocation);
+
+        if (horizontal) {
+            new Size(width, 1000);
+        } else {
+            new Size(1000, width);
+        }
     }
 
     public int getDamage() {
@@ -21,7 +27,7 @@ public class Laser extends DynamicSpriteEntity implements Collider {
     }
 
     public boolean canHit() {
-        if (System.currentTimeMillis() - this.lastHit >= 500) {
+        if (System.currentTimeMillis() - this.lastHit >= 100) {
             setLastHit();
             return true;
         }
