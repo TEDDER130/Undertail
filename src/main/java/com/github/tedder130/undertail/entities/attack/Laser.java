@@ -12,7 +12,7 @@ public class Laser extends DynamicSpriteEntity implements Collider {
     private int damage = 5;
     private long lastHit = 0;
 
-    protected Laser(Coordinate2D initialLocation, int width , int angle) {
+    public Laser(Coordinate2D initialLocation, int width, int angle) {
         super("sprites/Bullet.png", initialLocation, new Size(width, 50));
     }
 
