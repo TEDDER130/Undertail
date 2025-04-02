@@ -66,66 +66,66 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
 
         switch (angle) {
             case 0:
-                if (y > height + yPosArea) {
-                    setAnchorLocationY(height + yPosArea - 1);
+                if (y >= height + yPosArea) {
+                    setAnchorLocationY(height + yPosArea);
                     return false;
                 }
                 break;
                 case 45:
-                    if (y > height + yPosArea) {
-                        setAnchorLocationY(height + yPosArea - 1);
+                    if (y >= height + yPosArea) {
+                        setAnchorLocationY(height + yPosArea);
                         return false;
                     }
-                    if (x > width + xPosArea) {
-                    setAnchorLocationX(width + xPosArea - 1);
+                    if (x >= width + xPosArea) {
+                    setAnchorLocationX(width + xPosArea);
                     return false;
                 }
                     break;
                     case 90:
-                        if (x > width + xPosArea) {
-                            setAnchorLocationX(width + xPosArea - 1);
+                        if (x >= width + xPosArea) {
+                            setAnchorLocationX(width + xPosArea);
                             return false;
                         }
                         break;
                         case 135:
-                            if (x > width + xPosArea) {
-                                setAnchorLocationX(width + xPosArea - 1);
+                            if (x >= width + xPosArea) {
+                                setAnchorLocationX(width + xPosArea);
                                 return false;
                             }
-                            if (y < yPosArea) {
-                                setAnchorLocationY(yPosArea + 1);
+                            if (y <= yPosArea) {
+                                setAnchorLocationY(yPosArea);
                                 return false;
                             }
                             break;
             case 180:
-                    if (y < yPosArea) {
-                        setAnchorLocationY(yPosArea + 1);
+                    if (y <= yPosArea) {
+                        setAnchorLocationY(yPosArea);
                         return false;
                     }
                     break;
             case 225:
-                if (y < yPosArea) {
-                    setAnchorLocationY(yPosArea + 1);
+                if (y <= yPosArea) {
+                    setAnchorLocationY(yPosArea);
                     return false;
                 }
-                if (x < xPosArea) {
-                    setAnchorLocationX(xPosArea + 1);
+                if (x <= xPosArea) {
+                    setAnchorLocationX(xPosArea);
                     return false;
                 }
                 break;
             case 270:
-                if (x < xPosArea) {
-                    setAnchorLocationX(xPosArea + 1);
+                if (x <= xPosArea) {
+                    setAnchorLocationX(xPosArea);
                     return false;
                 }
                 break;
             case 315:
-                if (x < xPosArea) {
-                    setAnchorLocationX(xPosArea + 1);
+                if (x <= xPosArea) {
+                    setAnchorLocationX(xPosArea);
                     return false;
                 }
-                if (y > height + yPosArea) {
-                    setAnchorLocationY(height + yPosArea - 1);
+                if (y >= height + yPosArea) {
+                    setAnchorLocationY(height + yPosArea);
                     return false;
                 }
         }
