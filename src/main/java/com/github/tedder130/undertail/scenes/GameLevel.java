@@ -13,7 +13,7 @@ import static javafx.scene.paint.Color.rgb;
 public class GameLevel extends DynamicScene {
 
     //de X, Y, Width, Height
-    private int[] PlayArea = {100, 100, 300, 300};
+    private int[] PlayArea = {100, 100, 600, 300};
 
     Undertail undertail;
 

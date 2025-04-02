@@ -42,7 +42,9 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
             setMotion(5,180d);
         } else if(pressedKeys.contains(KeyCode.D) && canMove(90)){
             setMotion(5,90d);
+            System.out.println("d");
         } else if(pressedKeys.contains(KeyCode.S) && canMove(0)){
+            System.out.println("s");
             setMotion(5,0d);
         } else if(pressedKeys.contains(KeyCode.A) && canMove(270)){
             setMotion(5,270d);
@@ -52,7 +54,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
     }
 
     public boolean canMove(int angle) {
-        System.out.println(getAnchorLocation().getY());
+        System.out.println(angle);
 
         double x = getAnchorLocation().getX();
         double y = getAnchorLocation().getY();
@@ -70,11 +72,14 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                 }
                 break;
                 case 45:
-                    if (y > height + yPosArea && x > width + xPosArea) {
+                    if (y > height + yPosArea) {
                         setAnchorLocationY(height + yPosArea - 1);
-                        setAnchorLocationY(width + xPosArea - 1);
                         return false;
                     }
+                    if (x > width + xPosArea) {
+                    setAnchorLocationX(width + xPosArea - 1);
+                    return false;
+                }
                     break;
                     case 90:
                         if (x > width + xPosArea) {
@@ -83,9 +88,12 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                         }
                         break;
                         case 135:
-                            if (y < yPosArea && x > width + xPosArea) {
-                                setAnchorLocationY(yPosArea + 1);
+                            if (x > width + xPosArea) {
                                 setAnchorLocationX(width + xPosArea - 1);
+                                return false;
+                            }
+                            if (y < yPosArea) {
+                                setAnchorLocationY(yPosArea + 1);
                                 return false;
                             }
                             break;
@@ -96,8 +104,11 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                     }
                     break;
             case 225:
-                if (y < yPosArea && x < xPosArea) {
+                if (y < yPosArea) {
                     setAnchorLocationY(yPosArea + 1);
+                    return false;
+                }
+                if (x < xPosArea) {
                     setAnchorLocationX(xPosArea + 1);
                     return false;
                 }
@@ -109,9 +120,12 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                 }
                 break;
             case 315:
-                if (x < xPosArea && y > yPosArea + height) {
-                    setAnchorLocationY(yPosArea + height - 1);
+                if (x < xPosArea) {
                     setAnchorLocationX(xPosArea + 1);
+                    return false;
+                }
+                if (y > height + yPosArea) {
+                    setAnchorLocationY(height + yPosArea - 1);
                     return false;
                 }
         }
