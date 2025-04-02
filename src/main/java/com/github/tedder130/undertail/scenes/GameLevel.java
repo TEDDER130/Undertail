@@ -16,7 +16,7 @@ import static javafx.scene.paint.Color.rgb;
 public class GameLevel extends DynamicScene {
 
     //de X, Y, Width, Height
-    private int[] PlayArea = {100, 100, 600, 300};
+    private int[] PlayArea = {100, 200, 600, 300};
 
     Undertail undertail;
 
@@ -33,8 +33,8 @@ public class GameLevel extends DynamicScene {
     public void setupEntities() {
         int[] sizePlayer = {27, 40};
 
-        Coordinate2D playAreaCoordinate = new Coordinate2D(PlayArea[0], PlayArea[1]);
-        Size playAreaSize = new Size(PlayArea[2] + sizePlayer[0], PlayArea[3] + sizePlayer[1]);
+        Coordinate2D playAreaCoordinate = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2, PlayArea[1] - sizePlayer[1] / 2);
+        Size playAreaSize = new Size(PlayArea[2] + sizePlayer[0] / 2, PlayArea[3] + sizePlayer[1] /2);
         PlayArea playArea = new PlayArea(playAreaCoordinate, playAreaSize);
         addEntity(playArea);
 

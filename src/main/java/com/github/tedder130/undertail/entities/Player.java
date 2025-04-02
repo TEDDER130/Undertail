@@ -61,10 +61,10 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
         double x = getAnchorLocation().getX();
         double y = getAnchorLocation().getY();
 
-        int xPosArea = playAreaPropoties[0];
-        int yPosArea = playAreaPropoties[1];
-        int width = playAreaPropoties[2];
-        int height = playAreaPropoties[3];
+        int xPosArea = playAreaPropoties[0] - 13;
+        int yPosArea = playAreaPropoties[1] -20;
+        int width = playAreaPropoties[2] - 13;
+        int height = playAreaPropoties[3] - 20;
 
         switch (angle) {
             case 0:
