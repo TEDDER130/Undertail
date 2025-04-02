@@ -7,6 +7,7 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.attack.Bullet;
+import com.github.tedder130.undertail.entities.attack.Laser;
 import com.github.tedder130.undertail.entities.text.HealthText;
 import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import javafx.scene.input.KeyCode;
@@ -164,6 +165,13 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                     this.health -= bullet.getDamage();
                 }
                 bullet.setHit(true);
+            } else if (collider instanceof Laser) {
+                Laser laser = (Laser) collider;
+                if(laser.canHit()) {
+                    System.out.println("Hit By " + laser);
+                    laser.setLastHit();
+                    this.health -= laser.getDamage();
+                }
             }
         }
         healthText.setHealthText(health);
