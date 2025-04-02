@@ -14,7 +14,7 @@ import java.util.Random;
 import static javafx.scene.paint.Color.rgb;
 import static javafx.util.Duration.millis;
 
-public class Laser extends DynamicRectangleEntity implements Collider, TimerContainer {
+public class Laser extends DynamicRectangleEntity implements Collider {
 
     private int damage = 1;
     private long lastHit = 0;
@@ -57,26 +57,5 @@ public class Laser extends DynamicRectangleEntity implements Collider, TimerCont
 
     public void setLastHit() {
         this.lastHit = System.currentTimeMillis();
-    }
-
-
-    @Override
-    public void setupTimers() {
-        addTimer(new LaserTimer(this));
-    }
-
-    private static class LaserTimer extends Timer {
-
-        private Laser laser;
-
-        protected LaserTimer(final Laser laser) {
-            super(500);
-            this.laser = laser;
-        }
-
-        @Override
-        public void onAnimationUpdate(final long timestamp) {
-            laser.indication();
-        }
     }
 }
