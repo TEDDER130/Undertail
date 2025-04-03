@@ -2,10 +2,7 @@ package com.github.tedder130.undertail.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
-import com.github.tedder130.undertail.Spawner.Patronen.Barrage;
-import com.github.tedder130.undertail.Spawner.Patronen.Chessboard;
-import com.github.tedder130.undertail.Spawner.Patronen.Crossfire;
-import com.github.tedder130.undertail.Spawner.Patronen.Patroon;
+import com.github.tedder130.undertail.Spawner.Patronen.*;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.PlayArea;
 import com.github.tedder130.undertail.entities.Player;
@@ -93,8 +90,8 @@ public class GameLevel extends DynamicScene {
 //        Tile tile = new Tile(bulletCoordinatew);
 //        addEntity(tile);
 
-        Barrage barrage = new Barrage(this, PlayArea, sizePlayer);
-        addEntity(barrage);
+        Containment containment = new Containment(this, PlayArea, sizePlayer);
+        addEntity(containment);
     }
 
     public void spawnSmallBullet(int[] smallBulletData) {
