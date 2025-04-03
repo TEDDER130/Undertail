@@ -37,7 +37,7 @@ public abstract class Attack extends DynamicRectangleEntity implements Collider,
         addTimer(new IndicationTimer(this));
     }
 
-    private static class IndicationTimer extends Timer {
+    protected static class IndicationTimer extends Timer {
 
         private Attack attack;
 

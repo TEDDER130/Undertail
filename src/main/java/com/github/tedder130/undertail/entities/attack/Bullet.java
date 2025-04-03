@@ -70,23 +70,24 @@ public class Bullet extends Attack implements TimerContainer{
         }
     }
 
-//    @Override
-//    public void setupTimers() {
-//        addTimer(new Bullet.CollisionTimer(this));
-//    }
-//
-//    private static class CollisionTimer extends Timer {
-//
-//        private Bullet bullet;
-//
-//        protected CollisionTimer(final Bullet bullet) {
-//            super(10);
-//            this.bullet = bullet;
-//        }
-//
-//        @Override
-//        public void onAnimationUpdate(final long timestamp) {
-//            bullet.checkCollision();
-//        }
-//    }
+    @Override
+    public void setupTimers() {
+        addTimer(new Bullet.CollisionTimer(this));
+        addTimer(new Bullet.IndicationTimer(this));
+    }
+
+    private static class CollisionTimer extends Timer {
+
+        private Bullet bullet;
+
+        protected CollisionTimer(final Bullet bullet) {
+            super(10);
+            this.bullet = bullet;
+        }
+
+        @Override
+        public void onAnimationUpdate(final long timestamp) {
+            bullet.checkCollision();
+        }
+    }
 }
