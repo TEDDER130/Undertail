@@ -11,7 +11,7 @@ public class Tile extends Attack {
     private long lastHit = 0;
 
     public Tile(Coordinate2D initialLocation) {
-        super(initialLocation, new Size(100,100));
+        super(initialLocation, new Size(102,107));
         setFill(rgb(255,255,255, 0.33));
     }
 

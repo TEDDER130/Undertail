@@ -2,14 +2,11 @@ package com.github.tedder130.undertail.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
-import com.github.tedder130.undertail.Spawner.Patroonen.Patronen;
-import com.github.tedder130.undertail.Spawner.Patroonen.Patroon1;
+import com.github.tedder130.undertail.Spawner.Patronen.Chessboard;
+import com.github.tedder130.undertail.Spawner.Patronen.Patroon;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.PlayArea;
 import com.github.tedder130.undertail.entities.Player;
-import com.github.tedder130.undertail.entities.attack.BigBullet;
-import com.github.tedder130.undertail.entities.attack.Laser;
-import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import com.github.tedder130.undertail.entities.attack.Tile;
 import com.github.tedder130.undertail.entities.text.HealthText;
 import com.github.hanyaeger.api.Size;
@@ -76,9 +73,6 @@ public class GameLevel extends DynamicScene {
         Player player = new Player(playerCoordinate, healthText, undertail, PlayArea);
         addEntity(player);
 
-        Patronen test = new Patroon1();
-        test.initPatronen();
-
 //        Coordinate2D bulletCoordinate = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2, PlayArea[1] - sizePlayer[1] / 2);
 //        Laser laser = new Laser(bulletCoordinate, 45, true);
 //        addEntity(laser);
@@ -93,5 +87,16 @@ public class GameLevel extends DynamicScene {
 //        Coordinate2D bulletCoordinatew = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2 + 100, PlayArea[1] - sizePlayer[1] / 2 + 100);
 //        Tile tile = new Tile(bulletCoordinatew);
 //        addEntity(tile);
+
+        Chessboard chessboard = new Chessboard(this, PlayArea, sizePlayer);
+        addEntity(chessboard);
+    }
+
+    public void spawnTile(int[] tileData) {
+        System.out.println("Spawn tile ran");
+        System.out.println("received: x: " + tileData[0] + ", y: " + tileData[1]);
+        Coordinate2D tileCoordinate = new Coordinate2D(tileData[0], tileData[1]);
+        Tile tile = new Tile(tileCoordinate);
+        addEntity(tile);
     }
 }

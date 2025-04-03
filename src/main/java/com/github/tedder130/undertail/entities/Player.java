@@ -45,9 +45,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
             setMotion(5, 180d);
         } else if (pressedKeys.contains(KeyCode.D) && canMove(90)) {
             setMotion(5, 90d);
-            System.out.println("d");
         } else if (pressedKeys.contains(KeyCode.S) && canMove(0)) {
-            System.out.println("s");
             setMotion(5, 0d);
         } else if (pressedKeys.contains(KeyCode.A) && canMove(270)) {
             setMotion(5, 270d);
@@ -63,8 +61,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
     }
 
     public boolean canMove(int angle) {
-        System.out.println(angle);
-
         double x = getAnchorLocation().getX();
         double y = getAnchorLocation().getY();
 
