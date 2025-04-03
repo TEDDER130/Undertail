@@ -49,7 +49,7 @@ public class Laser extends Attack {
     }
 
     public boolean canHit() {
-        if (System.currentTimeMillis() - this.lastHit >= 100 && indication >= 3) {
+        if (System.currentTimeMillis() - this.lastHit >= 100 && indication >= 4) {
             setLastHit();
             return true;
         }

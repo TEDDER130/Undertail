@@ -24,7 +24,10 @@ public class Bullet extends Attack {
     }
 
     public boolean getCanGiveDamage() {
-        return canGiveDamage;
+        if (canGiveDamage && indication >= 4) {
+            return true;
+        }
+        return false;
     }
 
     public int getAngle() {
