@@ -65,15 +65,31 @@ public class Bullet extends Attack implements TimerContainer{
         double X = getAnchorLocation().getX();
         double Y = getAnchorLocation().getY();
 
-        if (X < playArea[0] || Y < playArea[1] || X > playArea[2] + playArea[0] || Y > playArea[3] + playArea[1]) {
-            remove();
+        Size size = null;
+
+        if (this instanceof BigBullet) {
+            BigBullet bullet = (BigBullet) this;
+            size = bullet.getSize();
+        } else if (this instanceof SmallBullet) {
+            SmallBullet bullet = (SmallBullet) this;
+            size = bullet.getSize();
+        }
+
+        if(angle > 315 || angle < 45 || angle > 135 && angle < 225) {
+            if (X < playArea[0] || Y < playArea[1]|| X > playArea[2] + playArea[0] || Y > playArea[3] + playArea[1] - size.height()) {
+                remove();
+            }
+        } else {
+            if (X < playArea[0] || Y < playArea[1] || X > playArea[2] + playArea[0] - size.width() || Y > playArea[3] + playArea[1]) {
+                remove();
+            }
         }
     }
 
     @Override
     public void setupTimers() {
-        addTimer(new Bullet.CollisionTimer(this));
-        addTimer(new Bullet.IndicationTimer(this));
+        addTimer(new CollisionTimer(this));
+        addTimer(new IndicationTimer(this));
     }
 
     private static class CollisionTimer extends Timer {

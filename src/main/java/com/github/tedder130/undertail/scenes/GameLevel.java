@@ -2,6 +2,8 @@ package com.github.tedder130.undertail.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
+import com.github.tedder130.undertail.Spawner.Patroonen.Patronen;
+import com.github.tedder130.undertail.Spawner.Patroonen.Patroon1;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.PlayArea;
 import com.github.tedder130.undertail.entities.Player;
@@ -74,19 +76,22 @@ public class GameLevel extends DynamicScene {
         Player player = new Player(playerCoordinate, healthText, undertail, PlayArea);
         addEntity(player);
 
-        Coordinate2D bulletCoordinate = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2, PlayArea[1] - sizePlayer[1] / 2);
-        Laser laser = new Laser(bulletCoordinate, 45, true);
-        addEntity(laser);
+        Patronen test = new Patroon1();
+        test.initPatronen();
 
-        Coordinate2D abulletCoordinate = new Coordinate2D(100, PlayArea[1] - sizePlayer[1] / 2 + 150);
-        BigBullet bigBullet = new BigBullet(abulletCoordinate, 90, PlayArea);
-        addEntity(bigBullet);
-
-        SmallBullet smallBullet = new SmallBullet(abulletCoordinate, 90, PlayArea);
-        addEntity(smallBullet);
-
-        Coordinate2D bulletCoordinatew = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2 + 100, PlayArea[1] - sizePlayer[1] / 2 + 100);
-        Tile tile = new Tile(bulletCoordinatew);
-        addEntity(tile);
+//        Coordinate2D bulletCoordinate = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2, PlayArea[1] - sizePlayer[1] / 2);
+//        Laser laser = new Laser(bulletCoordinate, 45, true);
+//        addEntity(laser);
+//
+//        Coordinate2D abulletCoordinate = new Coordinate2D(100, PlayArea[1] - sizePlayer[1] / 2 + 150);
+//        BigBullet bigBullet = new BigBullet(abulletCoordinate, 0, PlayArea);
+//        addEntity(bigBullet);
+//
+//        SmallBullet smallBullet = new SmallBullet(abulletCoordinate, 90, PlayArea);
+//        addEntity(smallBullet);
+//
+//        Coordinate2D bulletCoordinatew = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2 + 100, PlayArea[1] - sizePlayer[1] / 2 + 100);
+//        Tile tile = new Tile(bulletCoordinatew);
+//        addEntity(tile);
     }
 }
