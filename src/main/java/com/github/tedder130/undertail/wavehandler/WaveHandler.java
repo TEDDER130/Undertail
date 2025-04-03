@@ -5,6 +5,7 @@ import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.Timer;
 import com.github.hanyaeger.api.TimerContainer;
 import com.github.hanyaeger.api.entities.impl.DynamicRectangleEntity;
+import com.github.tedder130.undertail.entities.Player;
 import com.github.tedder130.undertail.scenes.GameLevel;
 import com.github.tedder130.undertail.wavehandler.Patronen.Patroon;
 
@@ -14,13 +15,17 @@ import java.util.List;
 public class WaveHandler extends DynamicRectangleEntity implements TimerContainer {
 
     private GameLevel gameLevel;
+    private Player player;
     private List<Timer> timers = new ArrayList<>();
+    private int delay = 1000;
+    private int counter = 0;
     private int lastRandom;
     private int random;
 
-    public WaveHandler(GameLevel gameLevel) {
+    public WaveHandler(GameLevel gameLevel, Player player) {
         super(new Coordinate2D(-100,-100), new Size(1,1));
         this.gameLevel = gameLevel;
+        this.player = player;
     }
 
     public void newWave() {
@@ -40,6 +45,13 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
         }
 
         lastRandom = random;
+
+        if (counter % 5 == 0) {
+            player.increaseWave(1);
+            delay-=5;
+            gameLevel.decreaseIndication();
+        }
+        counter++;
     }
 
     @Override
@@ -58,7 +70,7 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
         private WaveHandler waveHandler;
 
         protected WaveTimer(final WaveHandler waveHandler) {
-            super(1000);
+            super(waveHandler.delay);
             this.waveHandler = waveHandler;
         }
 

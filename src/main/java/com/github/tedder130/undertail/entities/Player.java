@@ -11,6 +11,9 @@ import com.github.tedder130.undertail.entities.attack.Laser;
 import com.github.tedder130.undertail.entities.attack.Tile;
 import com.github.tedder130.undertail.entities.text.HealthText;
 import com.github.tedder130.undertail.entities.attack.SmallBullet;
+import com.github.tedder130.undertail.entities.text.HighScoreText;
+import com.github.tedder130.undertail.entities.text.ScoreText;
+import com.github.tedder130.undertail.entities.text.WaveText;
 import javafx.scene.input.KeyCode;
 
 import java.util.List;
@@ -20,12 +23,20 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
 
     private Undertail undertail;
     private HealthText healthText;
-    private int health = 100;
+    private ScoreText scoreText;
+    private HighScoreText highScoreText;
+    private WaveText waveText;
+    public int health = 100;
+    public int wave = 0;
+    public int score = 0;
     private int[] playAreaPropoties;
 
-    public Player(Coordinate2D location, HealthText healthText, Undertail undertail, int[] playAreaPropoties) {
+    public Player(Coordinate2D location, HealthText healthText, ScoreText scoreText, HighScoreText highScoreText, WaveText waveText, Undertail undertail, int[] playAreaPropoties) {
         super("sprites/Player.png", location, new Size(40, 40));
         this.healthText = healthText;
+        this.scoreText = scoreText;
+        this.highScoreText = highScoreText;
+        this.waveText = waveText;
         this.undertail = undertail;
         this.playAreaPropoties = playAreaPropoties;
         healthText.setHealthText(health);
@@ -51,12 +62,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
             setMotion(5, 270d);
         } else {
             setSpeed(0);
-        }
-    }
-
-    public void deathCheck() {
-        if (this.health <= 0){
-            undertail.setActiveScene(2);
         }
     }
 
@@ -137,6 +142,12 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
         return true;
     }
 
+    public void deathCheck() {
+        if (this.health <= 0){
+            undertail.setActiveScene(2);
+        }
+    }
+
     @Override
     public void onCollision(List<Collider> collidingObject) {
         for (Collider collider : collidingObject) {
@@ -167,5 +178,19 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
             }
         }
         healthText.setHealthText(health);
+    }
+
+    public void increaseScore(int amount) {
+        score += amount;
+        scoreText.setScoreText(score);
+        if (score > undertail.highScore) {
+            undertail.highScore = score;
+            highScoreText.setHighScoreText(undertail.highScore);
+        }
+    }
+
+    public void increaseWave(int amount) {
+        wave+=amount;
+        waveText.setWaveText(wave);
     }
 }

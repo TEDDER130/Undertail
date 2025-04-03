@@ -5,6 +5,7 @@ import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.Timer;
 import com.github.hanyaeger.api.TimerContainer;
 import com.github.tedder130.undertail.entities.PlayArea;
+import com.github.tedder130.undertail.entities.Player;
 
 import java.io.Serializable;
 
@@ -18,8 +19,8 @@ public class Bullet extends Attack implements TimerContainer{
     private int speed;
     //private int indication = 0;
 
-    public Bullet(Coordinate2D initialLocation, int angle, int damage, int speed, Size size, int[] playArea) {
-        super(initialLocation, size);
+    public Bullet(Coordinate2D initialLocation, int angle, int damage, int speed, Size size, int[] playArea, Player player, int delay) {
+        super(initialLocation, size, player, delay);
         this.damage = damage;
         this.angle = angle;
         this.speed = speed;
@@ -27,6 +28,7 @@ public class Bullet extends Attack implements TimerContainer{
         setFill(rgb(255,255,255,0.33));
         setMotion(0, angle);
         setRotate(angle + 90);
+        player.increaseScore(1);
     }
 
     public boolean canHit() {

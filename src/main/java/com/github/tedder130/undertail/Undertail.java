@@ -8,6 +8,8 @@ import com.github.tedder130.undertail.scenes.TitleScene;
 
 public class Undertail extends YaegerGame {
 
+    public int highScore = 0;
+
     @Override
     public void setupGame() {
         setGameTitle("Undertail");

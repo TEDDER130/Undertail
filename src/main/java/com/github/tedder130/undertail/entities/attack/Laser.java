@@ -1,6 +1,7 @@
 package com.github.tedder130.undertail.entities.attack;
 
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.tedder130.undertail.entities.Player;
 
 import static javafx.scene.paint.Color.rgb;
 
@@ -9,8 +10,8 @@ public class Laser extends Attack {
     private int damage = 2;
     private long lastHit = 0;
 
-    public Laser(Coordinate2D initialLocation, int width, boolean horizontal) {
-        super(initialLocation);
+    public Laser(Coordinate2D initialLocation, int width, boolean horizontal, Player player, int delay) {
+        super(initialLocation, player, delay);
         setFill(rgb(255,255,255, 0.33));
         if (!horizontal) {
             setWidth(width);
@@ -19,6 +20,7 @@ public class Laser extends Attack {
             setWidth(600 + 13);
             setHeight(width);
         }
+        player.increaseScore(3);
     }
 
     public int getDamage() {
