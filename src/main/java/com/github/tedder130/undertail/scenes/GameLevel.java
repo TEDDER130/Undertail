@@ -8,6 +8,7 @@ import com.github.tedder130.undertail.entities.Player;
 import com.github.tedder130.undertail.entities.attack.BigBullet;
 import com.github.tedder130.undertail.entities.attack.Laser;
 import com.github.tedder130.undertail.entities.attack.SmallBullet;
+import com.github.tedder130.undertail.entities.attack.Tile;
 import com.github.tedder130.undertail.entities.text.HealthText;
 import com.github.hanyaeger.api.Size;
 import com.github.tedder130.undertail.entities.text.HighScoreText;
@@ -78,5 +79,9 @@ public class GameLevel extends DynamicScene {
 
         SmallBullet smallBullet = new SmallBullet(abulletCoordinate, 90);
         addEntity(smallBullet);
+
+        Coordinate2D bulletCoordinatew = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2 + 100, PlayArea[1] - sizePlayer[1] / 2 + 100);
+        Tile tile = new Tile(bulletCoordinatew);
+        addEntity(tile);
     }
 }

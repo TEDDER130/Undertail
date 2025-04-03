@@ -18,6 +18,8 @@ public abstract class Attack extends DynamicRectangleEntity implements Collider,
 
     public abstract void indication();
 
+    public abstract boolean canHit();
+
     public Attack(Coordinate2D initialLocation) {
         super(initialLocation);
     }

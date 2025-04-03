@@ -8,7 +8,7 @@ import static javafx.scene.paint.Color.rgb;
 public class Bullet extends Attack {
 
     protected int[] playArea = new int[4];
-    private boolean canGiveDamage = true;
+    private boolean canHit = true;
     private int angle;
     private int speed;
     //private int indication = 0;
@@ -23,8 +23,8 @@ public class Bullet extends Attack {
         setRotate(angle + 90);
     }
 
-    public boolean getCanGiveDamage() {
-        if (canGiveDamage && indication >= 2) {
+    public boolean canHit() {
+        if (canHit && indication >= 2) {
             return true;
         }
         return false;
@@ -38,8 +38,8 @@ public class Bullet extends Attack {
         return speed;
     }
 
-    public void setCanGiveDamage(boolean canGiveDamage) {
-        this.canGiveDamage = canGiveDamage;
+    public void setCanHit(boolean canHit) {
+        this.canHit = canHit;
     }
 
     @Override
