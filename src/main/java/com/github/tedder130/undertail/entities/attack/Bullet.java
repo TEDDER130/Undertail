@@ -11,7 +11,7 @@ public class Bullet extends Attack {
     private boolean canGiveDamage = true;
     private int angle;
     private int speed;
-    private int indication = 0;
+    //private int indication = 0;
 
     public Bullet(Coordinate2D initialLocation, int angle, int damage, int speed, Size size) {
         super(initialLocation, size);
@@ -24,7 +24,7 @@ public class Bullet extends Attack {
     }
 
     public boolean getCanGiveDamage() {
-        if (canGiveDamage && indication >= 4) {
+        if (canGiveDamage && indication >= 2) {
             return true;
         }
         return false;
@@ -44,7 +44,7 @@ public class Bullet extends Attack {
 
     @Override
     public void indication() {
-        if (indication >= 3) {
+        if (indication >= 1) {
             setFill(rgb(255,255,255,0.75));
             setMotion(getMotion(), getAngle());
         } else if (indication % 2 == 0) {

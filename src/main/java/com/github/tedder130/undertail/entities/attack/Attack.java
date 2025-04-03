@@ -14,7 +14,7 @@ public abstract class Attack extends DynamicRectangleEntity implements Collider,
 
 
     protected int damage;
-    //protected int indication = 0;
+    protected int indication = 0;
 
     public abstract void indication();
 

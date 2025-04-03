@@ -18,7 +18,7 @@ public class Laser extends Attack {
 
     private int damage = 1;
     private long lastHit = 0;
-    private int indication = 0;
+    //private int indication = 0;
 
     public Laser(Coordinate2D initialLocation, int width, boolean horizontal) {
         super(initialLocation);
