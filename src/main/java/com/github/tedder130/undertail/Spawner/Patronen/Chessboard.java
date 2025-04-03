@@ -19,7 +19,7 @@ public class Chessboard extends Patroon {
         System.out.println("x: " + this.x + " y: " + this.y);
         int[] tileData = new int[2];
 
-        if(this.x <= 5 && this.y <= 2) {
+
             if(x % 2 == 0) {
                 tileData[0] = playArea[0] - sizePlayer[0] / 2 + (this.x * 102);
                 tileData[1] = playArea[1] - sizePlayer[1] / 2 + (this.y * 107);
@@ -29,7 +29,7 @@ public class Chessboard extends Patroon {
 
                 gameLevel.spawnTile(tileData);
             }
-        }
+
 
         if(x >= 5 && y >= 2) {
             remove();

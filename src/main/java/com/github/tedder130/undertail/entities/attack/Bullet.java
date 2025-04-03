@@ -103,7 +103,9 @@ public class Bullet extends Attack implements TimerContainer{
 
         @Override
         public void onAnimationUpdate(final long timestamp) {
-            bullet.checkCollision();
+            if (bullet.indication > 2) {
+                bullet.checkCollision();
+            }
         }
     }
 }
