@@ -107,9 +107,10 @@ public class GameLevel extends DynamicScene {
     }
 
     public void spawnLaser(int[] laserData) {
-        boolean horizontal = (laserData[3] != 0);
+        boolean horizontal = (laserData[2] != 0);
         Coordinate2D laserCoordinate = new Coordinate2D(laserData[0], laserData[1]);
-        Laser laser = new Laser(laserCoordinate, laserData[2], horizontal);
+        Laser laser = new Laser(laserCoordinate, laserData[3], horizontal);
+        System.out.println("received: [" + laserCoordinate + ", " + laserData[3] + ", " + horizontal + "]");
         addEntity(laser);
     }
 

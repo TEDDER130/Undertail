@@ -1,6 +1,7 @@
 package com.github.tedder130.undertail.Spawner.Patronen;
 
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import com.github.tedder130.undertail.entities.attack.Tile;
 import com.github.tedder130.undertail.scenes.GameLevel;
 
