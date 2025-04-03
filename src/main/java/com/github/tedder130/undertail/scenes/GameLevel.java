@@ -35,7 +35,12 @@ public class GameLevel extends DynamicScene {
     @Override
     public void setupScene() {
         setBackgroundImage("backgrounds/AreaBaackground.png");
+        //calculatePlayArea();
     }
+
+//    public void calculatePlayArea() {
+//        System.out.println(getWidth() + " " + getHeight());
+//    }
 
     @Override
     public void setupEntities() {
