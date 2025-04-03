@@ -41,7 +41,7 @@ public class Bullet extends Attack {
 
     @Override
     public void indication() {
-        if (indication >= 1) {
+        if (indication >= 3) {
             setFill(rgb(255,255,255,0.75));
             setMotion(getMotion(), getAngle());
         } else if (indication % 2 == 0) {
