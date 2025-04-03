@@ -2,12 +2,15 @@ package com.github.tedder130.undertail.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
+import com.github.tedder130.undertail.Spawner.Patronen.Barrage;
 import com.github.tedder130.undertail.Spawner.Patronen.Chessboard;
 import com.github.tedder130.undertail.Spawner.Patronen.Crossfire;
 import com.github.tedder130.undertail.Spawner.Patronen.Patroon;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.PlayArea;
 import com.github.tedder130.undertail.entities.Player;
+import com.github.tedder130.undertail.entities.attack.BigBullet;
+import com.github.tedder130.undertail.entities.attack.Laser;
 import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import com.github.tedder130.undertail.entities.attack.Tile;
 import com.github.tedder130.undertail.entities.text.HealthText;
@@ -90,19 +93,30 @@ public class GameLevel extends DynamicScene {
 //        Tile tile = new Tile(bulletCoordinatew);
 //        addEntity(tile);
 
-        Crossfire crossfire = new Crossfire(this, PlayArea, sizePlayer);
-        addEntity(crossfire);
+        Barrage barrage = new Barrage(this, PlayArea, sizePlayer);
+        addEntity(barrage);
     }
 
     public void spawnSmallBullet(int[] smallBulletData) {
-        Coordinate2D bulletCoordinate = new Coordinate2D(smallBulletData[0], smallBulletData[1]);
-        SmallBullet smallBullet = new SmallBullet(bulletCoordinate, smallBulletData[2], PlayArea);
+        Coordinate2D smallBulletCoordinate = new Coordinate2D(smallBulletData[0], smallBulletData[1]);
+        SmallBullet smallBullet = new SmallBullet(smallBulletCoordinate, smallBulletData[2], PlayArea);
         addEntity(smallBullet);
     }
 
+    public void spawnBigBullet(int[] bigBulletData) {
+        Coordinate2D bigBulletCoordinate = new Coordinate2D(bigBulletData[0], bigBulletData[1]);
+        BigBullet bigBullet = new BigBullet(bigBulletCoordinate, bigBulletData[2], PlayArea);
+        addEntity(bigBullet);
+    }
+
+    public void spawnLaser(int[] laserData) {
+        boolean horizontal = (laserData[3] != 0);
+        Coordinate2D laserCoordinate = new Coordinate2D(laserData[0], laserData[1]);
+        Laser laser = new Laser(laserCoordinate, laserData[2], horizontal);
+        addEntity(laser);
+    }
+
     public void spawnTile(int[] tileData) {
-        System.out.println("Spawn tile ran");
-        System.out.println("received: x: " + tileData[0] + ", y: " + tileData[1]);
         Coordinate2D tileCoordinate = new Coordinate2D(tileData[0], tileData[1]);
         Tile tile = new Tile(tileCoordinate);
         addEntity(tile);
