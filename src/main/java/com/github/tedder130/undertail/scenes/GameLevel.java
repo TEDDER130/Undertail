@@ -2,7 +2,7 @@ package com.github.tedder130.undertail.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
-import com.github.tedder130.undertail.Spawner.Patronen.*;
+import com.github.tedder130.undertail.wavehandler.Patronen.*;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.PlayArea;
 import com.github.tedder130.undertail.entities.Player;
@@ -15,6 +15,9 @@ import com.github.hanyaeger.api.Size;
 import com.github.tedder130.undertail.entities.text.HighScoreText;
 import com.github.tedder130.undertail.entities.text.ScoreText;
 import com.github.tedder130.undertail.entities.text.WaveText;
+import com.github.tedder130.undertail.wavehandler.WaveHandler;
+
+import java.util.Objects;
 
 import static javafx.scene.paint.Color.rgb;
 
@@ -75,6 +78,9 @@ public class GameLevel extends DynamicScene {
         Player player = new Player(playerCoordinate, healthText, undertail, PlayArea);
         addEntity(player);
 
+        WaveHandler waveHandler = new WaveHandler(this);
+        addEntity(waveHandler);
+
 //        Coordinate2D bulletCoordinate = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2, PlayArea[1] - sizePlayer[1] / 2);
 //        Laser laser = new Laser(bulletCoordinate, 45, true);
 //        addEntity(laser);
@@ -89,9 +95,6 @@ public class GameLevel extends DynamicScene {
 //        Coordinate2D bulletCoordinatew = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2 + 100, PlayArea[1] - sizePlayer[1] / 2 + 100);
 //        Tile tile = new Tile(bulletCoordinatew);
 //        addEntity(tile);
-
-        Containment containment = new Containment(this, PlayArea, sizePlayer);
-        addEntity(containment);
     }
 
     public void spawnSmallBullet(int[] smallBulletData) {
@@ -118,5 +121,21 @@ public class GameLevel extends DynamicScene {
         Coordinate2D tileCoordinate = new Coordinate2D(tileData[0], tileData[1]);
         Tile tile = new Tile(tileCoordinate);
         addEntity(tile);
+    }
+
+    public void spawnWave(String pattern) {
+        if(Objects.equals(pattern, "barrage")) {
+            Barrage barrage = new Barrage(this, PlayArea, sizePlayer);
+            addEntity(barrage);
+        } else if (Objects.equals(pattern, "chessboard")) {
+            Chessboard chessboard = new Chessboard(this, PlayArea, sizePlayer);
+            addEntity(chessboard);
+        } else if (Objects.equals(pattern, "containment")) {
+            Containment containment = new Containment(this, PlayArea, sizePlayer);
+            addEntity(containment);
+        } else if (Objects.equals(pattern, "crossfire")) {
+            Crossfire crossfire = new Crossfire(this, PlayArea, sizePlayer);
+            addEntity(crossfire);
+        }
     }
 }

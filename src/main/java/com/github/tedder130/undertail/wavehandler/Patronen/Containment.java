@@ -1,7 +1,5 @@
-package com.github.tedder130.undertail.Spawner.Patronen;
+package com.github.tedder130.undertail.wavehandler.Patronen;
 
-import com.github.hanyaeger.api.Coordinate2D;
-import com.github.tedder130.undertail.entities.attack.Tile;
 import com.github.tedder130.undertail.scenes.GameLevel;
 
 import java.util.Arrays;

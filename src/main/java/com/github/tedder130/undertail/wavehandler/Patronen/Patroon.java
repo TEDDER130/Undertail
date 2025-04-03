@@ -1,4 +1,4 @@
-package com.github.tedder130.undertail.Spawner.Patronen;
+package com.github.tedder130.undertail.wavehandler.Patronen;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
