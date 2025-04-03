@@ -3,7 +3,6 @@ module waterworld {
 
     exports com.github.tedder130.undertail;
 
-    opens audio;
     opens backgrounds;
     opens sprites;
 }

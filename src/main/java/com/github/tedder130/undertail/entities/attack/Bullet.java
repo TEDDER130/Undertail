@@ -4,10 +4,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.Timer;
 import com.github.hanyaeger.api.TimerContainer;
-import com.github.tedder130.undertail.entities.PlayArea;
 import com.github.tedder130.undertail.entities.Player;
-
-import java.io.Serializable;
 
 import static javafx.scene.paint.Color.rgb;
 
@@ -17,7 +14,6 @@ public class Bullet extends Attack implements TimerContainer{
     private boolean canHit = true;
     private int angle;
     private int speed;
-    //private int indication = 0;
 
     public Bullet(Coordinate2D initialLocation, int angle, int damage, int speed, Size size, int[] playArea, Player player, int delay) {
         super(initialLocation, size, player, delay);
@@ -25,7 +21,7 @@ public class Bullet extends Attack implements TimerContainer{
         this.angle = angle;
         this.speed = speed;
         this.playArea = playArea;
-        setFill(rgb(255,255,255,0.33));
+        setFill(rgb(255,255,255,0.2));
         setMotion(0, angle);
         setRotate(angle + 90);
         player.increaseScore(1);
@@ -53,12 +49,12 @@ public class Bullet extends Attack implements TimerContainer{
     @Override
     public void indication() {
         if (indication >= 1) {
-            setFill(rgb(255,255,255,0.75));
+            setFill(rgb(255,255,255,1));
             setMotion(getMotion(), getAngle());
         } else if (indication % 2 == 0) {
             setFill(rgb(255,255,255, 0.1));
         } else {
-            setFill(rgb(255,255,255, 0.33));
+            setFill(rgb(255,255,255, 0.15));
         }
         indication++;
     }

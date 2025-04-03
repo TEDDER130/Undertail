@@ -10,7 +10,6 @@ import com.github.tedder130.undertail.entities.attack.Bullet;
 import com.github.tedder130.undertail.entities.attack.Laser;
 import com.github.tedder130.undertail.entities.attack.Tile;
 import com.github.tedder130.undertail.entities.text.HealthText;
-import com.github.tedder130.undertail.entities.attack.SmallBullet;
 import com.github.tedder130.undertail.entities.text.HighScoreText;
 import com.github.tedder130.undertail.entities.text.ScoreText;
 import com.github.tedder130.undertail.entities.text.WaveText;

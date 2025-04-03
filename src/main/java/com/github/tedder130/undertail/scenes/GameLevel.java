@@ -19,8 +19,6 @@ import com.github.tedder130.undertail.wavehandler.WaveHandler;
 
 import java.util.Objects;
 
-import static javafx.scene.paint.Color.rgb;
-
 public class GameLevel extends DynamicScene {
 
     //de X, Y, Width, Height

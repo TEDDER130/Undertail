@@ -12,7 +12,7 @@ public class Laser extends Attack {
 
     public Laser(Coordinate2D initialLocation, int width, boolean horizontal, Player player, int delay) {
         super(initialLocation, player, delay);
-        setFill(rgb(255,255,255, 0.33));
+        setFill(rgb(255,255,255, 0.2));
         if (!horizontal) {
             setWidth(width);
             setHeight(300 + 20);
@@ -37,7 +37,7 @@ public class Laser extends Attack {
         } else if (indication % 2 == 0) {
             setFill(rgb(255,255,255, 0.1));
         } else {
-            setFill(rgb(255,255,255, 0.33));
+            setFill(rgb(255,255,255, 0.15));
         }
         indication++;
     }

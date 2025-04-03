@@ -6,10 +6,7 @@ import com.github.hanyaeger.api.Timer;
 import com.github.hanyaeger.api.TimerContainer;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicRectangleEntity;
-import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.tedder130.undertail.entities.Player;
-
-import static javafx.scene.paint.Color.rgb;
 
 public abstract class Attack extends DynamicRectangleEntity implements Collider, TimerContainer {
 

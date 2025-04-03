@@ -7,7 +7,6 @@ import com.github.hanyaeger.api.TimerContainer;
 import com.github.hanyaeger.api.entities.impl.DynamicRectangleEntity;
 import com.github.tedder130.undertail.entities.Player;
 import com.github.tedder130.undertail.scenes.GameLevel;
-import com.github.tedder130.undertail.wavehandler.Patronen.Patroon;
 
 import java.util.ArrayList;
 import java.util.List;

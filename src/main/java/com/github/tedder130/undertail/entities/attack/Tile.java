@@ -13,7 +13,7 @@ public class Tile extends Attack {
 
     public Tile(Coordinate2D initialLocation, Player player, int delay) {
         super(initialLocation, new Size(102,107), player, delay);
-        setFill(rgb(255,255,255, 0.33));
+        setFill(rgb(255,255,255, 0.2));
         player.increaseScore(1);
     }
 
@@ -31,7 +31,7 @@ public class Tile extends Attack {
         } else if (indication % 2 == 0) {
             setFill(rgb(255,255,255, 0.1));
         } else {
-            setFill(rgb(255,255,255, 0.33));
+            setFill(rgb(255,255,255, 0.15));
         }
         indication++;
     }

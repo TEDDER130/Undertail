@@ -21,7 +21,7 @@ public class Barrage extends Patroon {
 
         gameLevel.spawnBigBullet(bigBulletData);
 
-        if (x > 6) {
+        if (x > 8) {
             remove();
         } else {
             x++;
