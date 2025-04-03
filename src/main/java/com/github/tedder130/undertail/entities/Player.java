@@ -56,6 +56,12 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
         }
     }
 
+    public void deathCheck() {
+        if (this.health <= 0){
+            undertail.setActiveScene(2);
+        }
+    }
+
     public boolean canMove(int angle) {
         System.out.println(angle);
 
@@ -143,6 +149,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                 if (bullet.canHit()) {
                     System.out.println("Hit By " + bullet + " Damage: " + bullet.getDamage());
                     this.health -= bullet.getDamage();
+                    deathCheck();
                 }
                 bullet.setCanHit(false);
             } else if (collider instanceof Laser) {
@@ -151,6 +158,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                     System.out.println("Hit By " + laser);
                     laser.setLastHit();
                     this.health -= laser.getDamage();
+                    deathCheck();
                 }
             } else if (collider instanceof Tile) {
                 Tile tile = (Tile) collider;
@@ -158,6 +166,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                     System.out.println("Hit By " + tile);
                     tile.setLastHit();
                     this.health -= tile.getDamage();
+                    deathCheck();
                 }
             }
         }
