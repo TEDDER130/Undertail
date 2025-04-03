@@ -20,7 +20,7 @@ import static javafx.scene.paint.Color.rgb;
 public class GameLevel extends DynamicScene {
 
     //de X, Y, Width, Height
-    public int[] PlayArea = {100, 200, 600, 300};
+    final public int[] PlayArea = {100, 200, 600, 300};
     public int[] sizePlayer = {27, 40};
     private int wave = 3;
     private int highScore = 69;
@@ -74,10 +74,10 @@ public class GameLevel extends DynamicScene {
         addEntity(laser);
 
         Coordinate2D abulletCoordinate = new Coordinate2D(100, PlayArea[1] - sizePlayer[1] / 2 + 150);
-        BigBullet bigBullet = new BigBullet(abulletCoordinate, 90);
+        BigBullet bigBullet = new BigBullet(abulletCoordinate, 90, PlayArea);
         addEntity(bigBullet);
 
-        SmallBullet smallBullet = new SmallBullet(abulletCoordinate, 90);
+        SmallBullet smallBullet = new SmallBullet(abulletCoordinate, 90, PlayArea);
         addEntity(smallBullet);
 
         Coordinate2D bulletCoordinatew = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2 + 100, PlayArea[1] - sizePlayer[1] / 2 + 100);

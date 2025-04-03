@@ -7,7 +7,7 @@ import static javafx.scene.paint.Color.rgb;
 
 public class Tile extends Attack {
 
-    private int damage = 1;
+    private int damage = 2;
     private long lastHit = 0;
 
     public Tile(Coordinate2D initialLocation) {
@@ -23,6 +23,9 @@ public class Tile extends Attack {
     public void indication() {
         if (indication >= 3) {
             setFill(rgb(255,255,255,0.75));
+            if (indication >= 5) {
+                remove();
+            }
         } else if (indication % 2 == 0) {
             setFill(rgb(255,255,255, 0.1));
         } else {

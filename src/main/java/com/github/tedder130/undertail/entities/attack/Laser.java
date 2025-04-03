@@ -6,7 +6,7 @@ import static javafx.scene.paint.Color.rgb;
 
 public class Laser extends Attack {
 
-    private int damage = 1;
+    private int damage = 2;
     private long lastHit = 0;
 
     public Laser(Coordinate2D initialLocation, int width, boolean horizontal) {
@@ -29,6 +29,9 @@ public class Laser extends Attack {
     public void indication() {
         if (indication >= 3) {
             setFill(rgb(255,255,255,0.75));
+            if (indication >= 5) {
+                remove();
+            }
         } else if (indication % 2 == 0) {
             setFill(rgb(255,255,255, 0.1));
         } else {
