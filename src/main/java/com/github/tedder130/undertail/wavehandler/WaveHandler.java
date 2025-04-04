@@ -16,7 +16,7 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
     private GameLevel gameLevel;
     private Player player;
     private List<Timer> timers = new ArrayList<>();
-    private int delay = 1000;
+    private int delay = 2000;
     private int counter = 0;
     private int lastRandom;
     private int random;
