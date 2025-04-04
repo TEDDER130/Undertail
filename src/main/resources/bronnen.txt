@@ -1,0 +1,7 @@
+background/AreaBackground.png = ChatGPT. (n.d.). https://chatgpt.com/
+background/GameOverBackground.png = ChatGPT. (n.d.). https://chatgpt.com/
+background/TitleSceneBackground.png = ChatGPT. (n.d.). https://chatgpt.com/
+
+sprites/Coin.png = ChatGPT. (n.d.). https://chatgpt.com/
+sprites/Health.png = ChatGPT. (n.d.). https://chatgpt.com/
+sprites/Player.png = ChatGPT. (n.d.). https://chatgpt.com/
