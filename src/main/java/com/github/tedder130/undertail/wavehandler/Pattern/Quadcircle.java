@@ -1,8 +1,8 @@
-package com.github.tedder130.undertail.wavehandler.Patronen;
+package com.github.tedder130.undertail.wavehandler.Pattern;
 
 import com.github.tedder130.undertail.scenes.GameLevel;
 
-public class Quadcircle extends Patroon {
+public class Quadcircle extends Pattern {
 
     int randomCorner;
     int angle = 0;

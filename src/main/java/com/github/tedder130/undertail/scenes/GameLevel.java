@@ -3,7 +3,7 @@ package com.github.tedder130.undertail.scenes;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.tedder130.undertail.entities.drops.Drop;
-import com.github.tedder130.undertail.wavehandler.Patronen.*;
+import com.github.tedder130.undertail.wavehandler.Pattern.*;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.PlayArea;
 import com.github.tedder130.undertail.entities.Player;

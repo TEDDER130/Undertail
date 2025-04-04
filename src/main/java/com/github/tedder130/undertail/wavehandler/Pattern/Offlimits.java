@@ -1,8 +1,8 @@
-package com.github.tedder130.undertail.wavehandler.Patronen;
+package com.github.tedder130.undertail.wavehandler.Pattern;
 
 import com.github.tedder130.undertail.scenes.GameLevel;
 
-public class Offlimits extends Patroon {
+public class Offlimits extends Pattern {
 
     int x = 0;
     int y = 0;

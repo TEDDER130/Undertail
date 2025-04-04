@@ -1,8 +1,8 @@
-package com.github.tedder130.undertail.wavehandler.Patronen;
+package com.github.tedder130.undertail.wavehandler.Pattern;
 
 import com.github.tedder130.undertail.scenes.GameLevel;
 
-public class Crossfire extends Patroon {
+public class Crossfire extends Pattern {
 
     int y = 0;
     boolean left = true;
