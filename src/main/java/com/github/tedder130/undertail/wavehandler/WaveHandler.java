@@ -42,6 +42,8 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
             gameLevel.spawnWave("containment");
         } else if (random == 4) {
             gameLevel.spawnWave("cross");
+        } else if (random == 5) {
+            gameLevel.spawnWave("offlimits");
         }
 
         lastRandom = random;
@@ -56,7 +58,6 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
 
     @Override
     public void setupTimers() {
-        System.out.println("Wave timer ran");
         addTimer(new WaveTimer(this));
     }
 

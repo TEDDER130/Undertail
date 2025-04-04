@@ -28,7 +28,6 @@ public abstract class Patroon extends DynamicRectangleEntity implements TimerCon
 
     @Override
     public void setupTimers() {
-        System.out.println("Setup timers ran");
         addTimer(new PatroonTimer(this));
     }
 
@@ -48,7 +47,6 @@ public abstract class Patroon extends DynamicRectangleEntity implements TimerCon
 
         @Override
         public void onAnimationUpdate(final long timestamp) {
-            System.out.println("Patroon update ran");
             patroon.generateEntities();
         }
     }

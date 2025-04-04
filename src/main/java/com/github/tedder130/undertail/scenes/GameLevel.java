@@ -116,6 +116,9 @@ public class GameLevel extends DynamicScene {
         } else if (Objects.equals(pattern, "cross")) {
             Cross cross = new Cross(this, PlayArea, sizePlayer);
             addEntity(cross);
+        } else if (Objects.equals(pattern, "offlimits")) {
+            Offlimits offlimits = new Offlimits(this, PlayArea, sizePlayer);
+            addEntity(offlimits);
         }
     }
 

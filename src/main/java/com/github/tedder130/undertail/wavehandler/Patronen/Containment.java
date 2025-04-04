@@ -36,7 +36,6 @@ public class Containment extends Patroon {
             laserData[2] = 0;
         }
 
-        System.out.println("send: " + Arrays.toString(laserData));
         gameLevel.spawnLaser(laserData);
 
         if(axis > 2) {
