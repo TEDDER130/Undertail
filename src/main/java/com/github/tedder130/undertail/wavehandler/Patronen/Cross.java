@@ -28,8 +28,6 @@ public class Cross extends Patroon {
             laserData[2] = 0;
         }
 
-
-
         gameLevel.spawnLaser(laserData);
 
         if(axis >= 1) {
