@@ -15,8 +15,6 @@ public class Chessboard extends Patroon {
 
     @Override
     public void generateEntities() {
-        System.out.println("Generate entities ran");
-        System.out.println("x: " + this.x + " y: " + this.y);
         int[] tileData = new int[2];
 
 
