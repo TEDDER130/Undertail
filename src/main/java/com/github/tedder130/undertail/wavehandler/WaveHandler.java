@@ -28,7 +28,6 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
     }
 
     public void newWave() {
-
         while (random == lastRandom) {
             random = (int) (Math.random() * 4);
         }
