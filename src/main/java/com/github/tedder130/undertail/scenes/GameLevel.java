@@ -78,7 +78,7 @@ public class GameLevel extends DynamicScene {
     }
 
     public void spawnDrop() {
-        Coordinate2D dropCoordinate = new Coordinate2D((int) (Math.random() * (PlayArea[2] - 50) + PlayArea[0] + 50), (int) (Math.random() * (PlayArea[3] - 50)) + PlayArea[1] + 50);
+        Coordinate2D dropCoordinate = new Coordinate2D((PlayArea[0] - sizePlayer[0] / 2) + (int) (Math.random() * (PlayArea[2])), (PlayArea[1] - sizePlayer[1] / 2) + (int) (Math.random() * (PlayArea[3])));
         int randomTypeDrop = (int) (Math.random() * 10);
         Drop drop = null;
         if (randomTypeDrop == 0) {
