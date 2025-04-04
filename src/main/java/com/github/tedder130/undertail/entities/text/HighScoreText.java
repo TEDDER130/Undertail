@@ -13,7 +13,7 @@ public class HighScoreText extends TextEntity {
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
         setFont(Font.font("Roboto", FontWeight.NORMAL, 30));
-        setFill(Color.DARKBLUE);
+        setFill(Color.WHITE);
     }
 
     public void setHighScoreText(int highScore){

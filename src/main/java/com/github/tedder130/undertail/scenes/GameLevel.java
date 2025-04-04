@@ -136,6 +136,9 @@ public class GameLevel extends DynamicScene {
         } else if (Objects.equals(pattern, "bulletcross")) {
             BulletCross bulletCross = new BulletCross(this, PlayArea, sizePlayer);
             addEntity(bulletCross);
+        } else if (Objects.equals(pattern, "quadcircle")) {
+            Quadcircle quadcircle = new Quadcircle(this, PlayArea, sizePlayer);
+            addEntity(quadcircle);
         }
     }
 
