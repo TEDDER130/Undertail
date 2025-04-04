@@ -27,16 +27,16 @@ public class BulletCross extends Patroon {
         } else if (x == 2) {
             bigBulletData[0] = playArea[0] - sizePlayer[0] / 2;
             bigBulletData[1] = playArea[1] - sizePlayer[1] / 2 + playArea[3];
-            bigBulletData[2] = 160;
+            bigBulletData[2] = 110;
         } else if (x == 3) {
-            bigBulletData[0] = playArea[0] - sizePlayer[0] / 2;
+            bigBulletData[0] = playArea[0] - sizePlayer[0] / 2 + playArea[2];
             bigBulletData[1] = playArea[1] - sizePlayer[1] / 2 + playArea[3];
-            bigBulletData[2] = 200;
+            bigBulletData[2] = 250;
         }
 
-        gameLevel.spawnSmallBullet(bigBulletData);
+        gameLevel.spawnBigBullet(bigBulletData);
 
-        if (x >= 4) {
+        if (x >= 3) {
             remove();
         } else {
             x++;
