@@ -22,7 +22,7 @@ public class GameOver extends StaticScene {
 
     @Override
     public void setupScene() {
-        setBackgroundColor(rgb(0,0,0));
+        setBackgroundImage("backgrounds/GameOverBackground.png");
     }
 
     @Override

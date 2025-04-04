@@ -36,7 +36,7 @@ public class GameLevel extends DynamicScene {
 
     @Override
     public void setupScene() {
-        setBackgroundImage("backgrounds/AreaBaackground.png");
+        setBackgroundImage("backgrounds/AreaBackground.png");
     }
 
     @Override
