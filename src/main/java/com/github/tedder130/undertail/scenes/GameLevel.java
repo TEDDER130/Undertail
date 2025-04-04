@@ -113,6 +113,9 @@ public class GameLevel extends DynamicScene {
         } else if (Objects.equals(pattern, "crossfire")) {
             Crossfire crossfire = new Crossfire(this, PlayArea, sizePlayer);
             addEntity(crossfire);
+        } else if (Objects.equals(pattern, "cross")) {
+            Cross cross = new Cross(this, PlayArea, sizePlayer);
+            addEntity(cross);
         }
     }
 

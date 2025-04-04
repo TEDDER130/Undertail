@@ -29,7 +29,7 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
 
     public void newWave() {
         while (random == lastRandom) {
-            random = (int) (Math.random() * 4);
+            random = (int) (Math.random() * 5);
         }
 
         if (random == 0) {
@@ -40,6 +40,8 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
             gameLevel.spawnWave("crossfire");
         } else if (random == 3) {
             gameLevel.spawnWave("containment");
+        } else if (random == 4) {
+            gameLevel.spawnWave("cross");
         }
 
         lastRandom = random;
