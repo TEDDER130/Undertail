@@ -23,12 +23,12 @@ import java.util.Objects;
 public class GameLevel extends DynamicScene {
 
     //de X, Y, Width, Height
-    final private int[] playAreaProperties = {100, 200, 600, 300};
-    final private int[] sizePlayer = {27, 40};
+    private final int[] playAreaProperties = {100, 200, 600, 300};
+    private final  int[] sizePlayer = {27, 40};
     private int indication = 500;
     private Player player;
 
-    Undertail undertail;
+    private Undertail undertail;
 
     public GameLevel(Undertail undertail) {
         this.undertail = undertail;
