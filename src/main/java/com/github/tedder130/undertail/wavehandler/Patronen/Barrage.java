@@ -15,13 +15,13 @@ public class Barrage extends Patroon {
 
         int[] bigBulletData = new int[3];
 
-            bigBulletData[0] = playArea[0] - (sizePlayer[0] / 4) * 3 + (this.x * 61) + 23;
+            bigBulletData[0] = playArea[0] - (sizePlayer[0] / 4) * 3 + (this.x * 77) + 31;
             bigBulletData[1] = playArea[1] - sizePlayer[1] / 2;
             bigBulletData[2] = 0;
 
         gameLevel.spawnBigBullet(bigBulletData);
 
-        if (x > 8) {
+        if (x > 6) {
             remove();
         } else {
             x++;
