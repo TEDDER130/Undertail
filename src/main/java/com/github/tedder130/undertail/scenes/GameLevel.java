@@ -23,9 +23,9 @@ import java.util.Objects;
 public class GameLevel extends DynamicScene {
 
     //de X, Y, Width, Height
-    final public int[] PlayArea = {100, 200, 600, 300};
-    public int[] sizePlayer = {27, 40};
-    public int indication = 500;
+    final private int[] playAreaProperties = {100, 200, 600, 300};
+    final private int[] sizePlayer = {27, 40};
+    private int indication = 500;
     private Player player;
 
     Undertail undertail;
@@ -41,8 +41,8 @@ public class GameLevel extends DynamicScene {
 
     @Override
     public void setupEntities() {
-        Coordinate2D playAreaCoordinate = new Coordinate2D(PlayArea[0] - sizePlayer[0] / 2, PlayArea[1] - sizePlayer[1] / 2);
-        Size playAreaSize = new Size(PlayArea[2] + sizePlayer[0] / 2, PlayArea[3] + sizePlayer[1] / 2);
+        Coordinate2D playAreaCoordinate = new Coordinate2D(playAreaProperties[0] - sizePlayer[0] / 2, playAreaProperties[1] - sizePlayer[1] / 2);
+        Size playAreaSize = new Size(playAreaProperties[2] + sizePlayer[0] / 2, playAreaProperties[3] + sizePlayer[1] / 2);
         PlayArea playArea = new PlayArea(playAreaCoordinate, playAreaSize);
         addEntity(playArea);
 
@@ -67,7 +67,7 @@ public class GameLevel extends DynamicScene {
         highScoreText.setHighScoreText(undertail.highScore);
 
         Coordinate2D playerCoordinate = new Coordinate2D(getWidth() / 2, getHeight() / 2);
-        Player player = new Player(playerCoordinate, healthText, scoreText, highScoreText, waveText, undertail, PlayArea, this);
+        Player player = new Player(playerCoordinate, healthText, scoreText, highScoreText, waveText, undertail, playAreaProperties, this);
         this.player = player;
         addEntity(player);
 
@@ -78,7 +78,7 @@ public class GameLevel extends DynamicScene {
     }
 
     public void spawnDrop() {
-        Coordinate2D dropCoordinate = new Coordinate2D((PlayArea[0] - sizePlayer[0] / 2) + (int) (Math.random() * (PlayArea[2])), (PlayArea[1] - sizePlayer[1] / 2) + (int) (Math.random() * (PlayArea[3])));
+        Coordinate2D dropCoordinate = new Coordinate2D((playAreaProperties[0] - sizePlayer[0] / 2) + (int) (Math.random() * (playAreaProperties[2])), (playAreaProperties[1] - sizePlayer[1] / 2) + (int) (Math.random() * (playAreaProperties[3])));
         int randomTypeDrop = (int) (Math.random() * 10);
         Drop drop = null;
         if (randomTypeDrop == 0) {
@@ -91,13 +91,13 @@ public class GameLevel extends DynamicScene {
 
     public void spawnSmallBullet(int[] smallBulletData) {
         Coordinate2D smallBulletCoordinate = new Coordinate2D(smallBulletData[0], smallBulletData[1]);
-        SmallBullet smallBullet = new SmallBullet(smallBulletCoordinate, smallBulletData[2], PlayArea, player, indication);
+        SmallBullet smallBullet = new SmallBullet(smallBulletCoordinate, smallBulletData[2], playAreaProperties, player, indication);
         addEntity(smallBullet);
     }
 
     public void spawnBigBullet(int[] bigBulletData) {
         Coordinate2D bigBulletCoordinate = new Coordinate2D(bigBulletData[0], bigBulletData[1]);
-        BigBullet bigBullet = new BigBullet(bigBulletCoordinate, bigBulletData[2], PlayArea, player, indication);
+        BigBullet bigBullet = new BigBullet(bigBulletCoordinate, bigBulletData[2], playAreaProperties, player, indication);
         addEntity(bigBullet);
     }
 
@@ -116,28 +116,28 @@ public class GameLevel extends DynamicScene {
 
     public void spawnWave(String pattern) {
         if(Objects.equals(pattern, "barrage")) {
-            Barrage barrage = new Barrage(this, PlayArea, sizePlayer);
+            Barrage barrage = new Barrage(this, playAreaProperties, sizePlayer);
             addEntity(barrage);
         } else if (Objects.equals(pattern, "chessboard")) {
-            Chessboard chessboard = new Chessboard(this, PlayArea, sizePlayer);
+            Chessboard chessboard = new Chessboard(this, playAreaProperties, sizePlayer);
             addEntity(chessboard);
         } else if (Objects.equals(pattern, "containment")) {
-            Containment containment = new Containment(this, PlayArea, sizePlayer);
+            Containment containment = new Containment(this, playAreaProperties, sizePlayer);
             addEntity(containment);
         } else if (Objects.equals(pattern, "crossfire")) {
-            Crossfire crossfire = new Crossfire(this, PlayArea, sizePlayer);
+            Crossfire crossfire = new Crossfire(this, playAreaProperties, sizePlayer);
             addEntity(crossfire);
         } else if (Objects.equals(pattern, "cross")) {
-            Cross cross = new Cross(this, PlayArea, sizePlayer);
+            Cross cross = new Cross(this, playAreaProperties, sizePlayer);
             addEntity(cross);
         } else if (Objects.equals(pattern, "offlimits")) {
-            Offlimits offlimits = new Offlimits(this, PlayArea, sizePlayer);
+            Offlimits offlimits = new Offlimits(this, playAreaProperties, sizePlayer);
             addEntity(offlimits);
         } else if (Objects.equals(pattern, "bulletcross")) {
-            BulletCross bulletCross = new BulletCross(this, PlayArea, sizePlayer);
+            BulletCross bulletCross = new BulletCross(this, playAreaProperties, sizePlayer);
             addEntity(bulletCross);
         } else if (Objects.equals(pattern, "quadcircle")) {
-            Quadcircle quadcircle = new Quadcircle(this, PlayArea, sizePlayer);
+            Quadcircle quadcircle = new Quadcircle(this, playAreaProperties, sizePlayer);
             addEntity(quadcircle);
         }
     }
