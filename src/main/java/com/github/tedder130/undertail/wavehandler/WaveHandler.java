@@ -54,10 +54,10 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
 
         if (counter % 3 == 0) {
             player.increaseWave(1);
-            if (50 - counter/5 < 25) {
+            if (50 - counter/3 < 25) {
                 delay-= 25;
             } else {
-                delay-= 25 - counter/5;
+                delay-= 50 - counter/3;
             }
 
             System.out.println(delay);
