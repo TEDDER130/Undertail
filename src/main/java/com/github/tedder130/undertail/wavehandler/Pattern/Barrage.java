@@ -1,8 +1,8 @@
-package com.github.tedder130.undertail.wavehandler.Patronen;
+package com.github.tedder130.undertail.wavehandler.Pattern;
 
 import com.github.tedder130.undertail.scenes.GameLevel;
 
-public class Barrage extends Patroon {
+public class Barrage extends Pattern {
 
     int x = 0;
 

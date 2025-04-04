@@ -1,8 +1,8 @@
-package com.github.tedder130.undertail.wavehandler.Patronen;
+package com.github.tedder130.undertail.wavehandler.Pattern;
 
 import com.github.tedder130.undertail.scenes.GameLevel;
 
-public class Chessboard extends Patroon {
+public class Chessboard extends Pattern {
 
     int x = 0;
     int y = 0;

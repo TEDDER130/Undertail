@@ -1,8 +1,8 @@
-package com.github.tedder130.undertail.wavehandler.Patronen;
+package com.github.tedder130.undertail.wavehandler.Pattern;
 
 import com.github.tedder130.undertail.scenes.GameLevel;
 
-public class BulletCross extends Patroon {
+public class BulletCross extends Pattern {
 
     public BulletCross(GameLevel gameLevel, int[] playArea, int[] sizePlayer) {
         super(gameLevel, playArea, sizePlayer);

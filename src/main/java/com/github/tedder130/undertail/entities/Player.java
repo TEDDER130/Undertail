@@ -18,7 +18,6 @@ import com.github.tedder130.undertail.scenes.GameLevel;
 import javafx.scene.input.KeyCode;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 public class Player extends DynamicSpriteEntity implements KeyListener, Collided {
@@ -32,7 +31,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
     public int health = 100;
     public int wave = 0;
     public int score = 0;
-    private int[] playAreaPropoties;
+    private int[] playAreaProperties;
 
     public Player(Coordinate2D location, HealthText healthText, ScoreText scoreText, HighScoreText highScoreText, WaveText waveText, Undertail undertail, int[] playAreaPropoties, GameLevel gameLevel) {
         super("sprites/Player.png", location, new Size(40, 40));
@@ -42,7 +41,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
         this.waveText = waveText;
         this.undertail = undertail;
         this.gameLevel = gameLevel;
-        this.playAreaPropoties = playAreaPropoties;
+        this.playAreaProperties = playAreaPropoties;
         healthText.setHealthText(health);
     }
 
@@ -73,10 +72,10 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
         double x = getAnchorLocation().getX();
         double y = getAnchorLocation().getY();
 
-        int xPosArea = playAreaPropoties[0] - 13;
-        int yPosArea = playAreaPropoties[1] -20;
-        int width = playAreaPropoties[2] - 13;
-        int height = playAreaPropoties[3] - 20;
+        int xPosArea = playAreaProperties[0] - 13;
+        int yPosArea = playAreaProperties[1] -20;
+        int width = playAreaProperties[2] - 13;
+        int height = playAreaProperties[3] - 20;
 
         switch (angle) {
             case 0:

@@ -8,6 +8,7 @@ import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.buttons.QuitButton;
 import com.github.tedder130.undertail.buttons.RestartButton;
 
+import com.github.tedder130.undertail.entities.text.ScoreText;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -22,7 +23,7 @@ public class GameOver extends StaticScene {
 
     @Override
     public void setupScene() {
-        setBackgroundColor(rgb(0,0,0));
+        setBackgroundImage("backgrounds/GameOverBackground.png");
     }
 
     @Override
@@ -43,6 +44,11 @@ public class GameOver extends StaticScene {
         Coordinate2D quitButtonLocation = new Coordinate2D((getWidth() / 3) * 2, (getHeight() / 3) * 2);
         QuitButton quitButton = new QuitButton(quitButtonLocation, undertail);
         addEntity(quitButton);
+
+        Coordinate2D scoreTextCoordinate = new Coordinate2D(getWidth() / 2, getHeight() / 2);
+        ScoreText scoreText = new ScoreText(scoreTextCoordinate);
+        addEntity(scoreText);
+        scoreText.setScoreText(undertail.highScore);
     }
 }
 

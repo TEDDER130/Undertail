@@ -1,4 +1,4 @@
-package com.github.tedder130.undertail.wavehandler.Patronen;
+package com.github.tedder130.undertail.wavehandler.Pattern;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -10,14 +10,14 @@ import com.github.tedder130.undertail.scenes.GameLevel;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Patroon extends DynamicRectangleEntity implements TimerContainer {
+public abstract class Pattern extends DynamicRectangleEntity implements TimerContainer {
 
     protected GameLevel gameLevel;
     protected int[] playArea;
     protected int[] sizePlayer;
     private List<Timer> timers = new ArrayList<>();
 
-    public Patroon(GameLevel gameLevel, int[] playArea, int[] sizePlayer) {
+    public Pattern(GameLevel gameLevel, int[] playArea, int[] sizePlayer) {
         super(new Coordinate2D(-100, 100), new Size(1,1));
         this.gameLevel = gameLevel;
         this.playArea = playArea;
@@ -28,7 +28,7 @@ public abstract class Patroon extends DynamicRectangleEntity implements TimerCon
 
     @Override
     public void setupTimers() {
-        addTimer(new PatroonTimer(this));
+        addTimer(new PatternTimer(this));
     }
 
     @Override
@@ -36,11 +36,11 @@ public abstract class Patroon extends DynamicRectangleEntity implements TimerCon
         return timers;
     }
 
-    protected static class PatroonTimer extends Timer {
+    protected static class PatternTimer extends Timer {
 
-        private Patroon patroon;
+        private Pattern patroon;
 
-        protected PatroonTimer(final Patroon patroon) {
+        protected PatternTimer(final Pattern patroon) {
             super(25);
             this.patroon = patroon;
         }

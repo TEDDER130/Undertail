@@ -1,10 +1,8 @@
-package com.github.tedder130.undertail.wavehandler.Patronen;
+package com.github.tedder130.undertail.wavehandler.Pattern;
 
 import com.github.tedder130.undertail.scenes.GameLevel;
 
-import java.util.Arrays;
-
-public class Containment extends Patroon {
+public class Containment extends Pattern {
 
     int axis = 0;
 
