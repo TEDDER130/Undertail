@@ -2,6 +2,7 @@ package com.github.tedder130.undertail.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
+import com.github.tedder130.undertail.entities.drops.Drop;
 import com.github.tedder130.undertail.wavehandler.Patronen.*;
 import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.PlayArea;
@@ -65,14 +66,27 @@ public class GameLevel extends DynamicScene {
         addEntity(highScoreText);
         highScoreText.setHighScoreText(undertail.highScore);
 
-
         Coordinate2D playerCoordinate = new Coordinate2D(getWidth() / 2, getHeight() / 2);
-        Player player = new Player(playerCoordinate, healthText, scoreText, highScoreText, waveText, undertail, PlayArea);
+        Player player = new Player(playerCoordinate, healthText, scoreText, highScoreText, waveText, undertail, PlayArea, this);
         this.player = player;
         addEntity(player);
 
         WaveHandler waveHandler = new WaveHandler(this, player);
         addEntity(waveHandler);
+
+        spawnDrop();
+    }
+
+    public void spawnDrop() {
+        Coordinate2D dropCoordinate = new Coordinate2D((PlayArea[0] - sizePlayer[0] / 2) + (int) (Math.random() * (PlayArea[2])), (PlayArea[1] - sizePlayer[1] / 2) + (int) (Math.random() * (PlayArea[3])));
+        int randomTypeDrop = (int) (Math.random() * 10);
+        Drop drop = null;
+        if (randomTypeDrop == 0) {
+            drop = new Drop("sprites/Health.png", dropCoordinate, "Health");
+        } else if (randomTypeDrop >= 1) {
+            drop = new Drop("sprites/Coin.png", dropCoordinate, "Coin");
+        }
+        addEntity(drop);
     }
 
     public void spawnSmallBullet(int[] smallBulletData) {
@@ -113,6 +127,18 @@ public class GameLevel extends DynamicScene {
         } else if (Objects.equals(pattern, "crossfire")) {
             Crossfire crossfire = new Crossfire(this, PlayArea, sizePlayer);
             addEntity(crossfire);
+        } else if (Objects.equals(pattern, "cross")) {
+            Cross cross = new Cross(this, PlayArea, sizePlayer);
+            addEntity(cross);
+        } else if (Objects.equals(pattern, "offlimits")) {
+            Offlimits offlimits = new Offlimits(this, PlayArea, sizePlayer);
+            addEntity(offlimits);
+        } else if (Objects.equals(pattern, "bulletcross")) {
+            BulletCross bulletCross = new BulletCross(this, PlayArea, sizePlayer);
+            addEntity(bulletCross);
+        } else if (Objects.equals(pattern, "quadcircle")) {
+            Quadcircle quadcircle = new Quadcircle(this, PlayArea, sizePlayer);
+            addEntity(quadcircle);
         }
     }
 

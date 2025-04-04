@@ -16,7 +16,7 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
     private GameLevel gameLevel;
     private Player player;
     private List<Timer> timers = new ArrayList<>();
-    private int delay = 1000;
+    private int delay = 2000;
     private int counter = 0;
     private int lastRandom;
     private int random;
@@ -28,9 +28,8 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
     }
 
     public void newWave() {
-
         while (random == lastRandom) {
-            random = (int) (Math.random() * 4);
+            random = (int) (Math.random() * 8);
         }
 
         if (random == 0) {
@@ -41,13 +40,22 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
             gameLevel.spawnWave("crossfire");
         } else if (random == 3) {
             gameLevel.spawnWave("containment");
+        } else if (random == 4) {
+            gameLevel.spawnWave("cross");
+        } else if (random == 5) {
+            gameLevel.spawnWave("offlimits");
+        } else if (random == 6) {
+            gameLevel.spawnWave("bulletcross");
+        } else if (random == 7) {
+            gameLevel.spawnWave("quadcircle");
         }
 
         lastRandom = random;
 
         if (counter % 5 == 0) {
             player.increaseWave(1);
-            delay-=5;
+            delay = (int) (delay * 0.95);
+            System.out.println(delay);
             gameLevel.decreaseIndication();
         }
         counter++;
@@ -55,7 +63,6 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
 
     @Override
     public void setupTimers() {
-        System.out.println("Wave timer ran");
         addTimer(new WaveTimer(this));
     }
 
@@ -75,6 +82,7 @@ public class WaveHandler extends DynamicRectangleEntity implements TimerContaine
 
         @Override
         public void onAnimationUpdate(final long timestamp) {
+            setIntervalInMs(waveHandler.delay);
             waveHandler.newWave();
         }
     }

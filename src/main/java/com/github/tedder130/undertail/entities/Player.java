@@ -9,13 +9,16 @@ import com.github.tedder130.undertail.Undertail;
 import com.github.tedder130.undertail.entities.attack.Bullet;
 import com.github.tedder130.undertail.entities.attack.Laser;
 import com.github.tedder130.undertail.entities.attack.Tile;
+import com.github.tedder130.undertail.entities.drops.Drop;
 import com.github.tedder130.undertail.entities.text.HealthText;
 import com.github.tedder130.undertail.entities.text.HighScoreText;
 import com.github.tedder130.undertail.entities.text.ScoreText;
 import com.github.tedder130.undertail.entities.text.WaveText;
+import com.github.tedder130.undertail.scenes.GameLevel;
 import javafx.scene.input.KeyCode;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class Player extends DynamicSpriteEntity implements KeyListener, Collided {
@@ -25,18 +28,20 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
     private ScoreText scoreText;
     private HighScoreText highScoreText;
     private WaveText waveText;
+    private GameLevel gameLevel;
     public int health = 100;
     public int wave = 0;
     public int score = 0;
     private int[] playAreaPropoties;
 
-    public Player(Coordinate2D location, HealthText healthText, ScoreText scoreText, HighScoreText highScoreText, WaveText waveText, Undertail undertail, int[] playAreaPropoties) {
+    public Player(Coordinate2D location, HealthText healthText, ScoreText scoreText, HighScoreText highScoreText, WaveText waveText, Undertail undertail, int[] playAreaPropoties, GameLevel gameLevel) {
         super("sprites/Player.png", location, new Size(40, 40));
         this.healthText = healthText;
         this.scoreText = scoreText;
         this.highScoreText = highScoreText;
         this.waveText = waveText;
         this.undertail = undertail;
+        this.gameLevel = gameLevel;
         this.playAreaPropoties = playAreaPropoties;
         healthText.setHealthText(health);
     }
@@ -174,6 +179,20 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
                     this.health -= tile.getDamage();
                     deathCheck();
                 }
+            } else if (collider instanceof Drop) {
+                Drop drop = (Drop) collider;
+                String typeDrop = drop.getTypeDrop();
+
+                if (typeDrop == "Coin") {
+                    increaseScore(50);
+                    drop.remove();
+                    gameLevel.spawnDrop();
+                } else if (typeDrop == "Health") {
+                    drop.remove();
+                    increaseHealth(25);
+                    gameLevel.spawnDrop();
+                }
+
             }
         }
         healthText.setHealthText(health);
@@ -191,5 +210,10 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Collided
     public void increaseWave(int amount) {
         wave+=amount;
         waveText.setWaveText(wave);
+    }
+
+    public void increaseHealth(int amount) {
+        health += amount;
+        healthText.setHealthText(health);
     }
 }
