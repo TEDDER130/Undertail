@@ -8,7 +8,7 @@ public class BigBullet extends Bullet {
     private Size size;
 
     public BigBullet(Coordinate2D initialLocation, int direction, int[] playArea, Player player, int delay) {
-        super(initialLocation, direction, 25, 4, new Size(30, 15), playArea, player, delay);
+        super(initialLocation, direction, 15, 4, new Size(30, 15), playArea, player, delay);
         size = new Size(30, 15);
     }
 
